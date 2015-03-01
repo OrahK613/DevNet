@@ -13,7 +13,8 @@ namespace DevNet.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            // This allows migrations when deployed to production server triggered by GitHub repository commits.
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DevNet.Models.ApplicationDbContext context)
