@@ -58,11 +58,11 @@ namespace DevNet
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "27719036434-b7662no3mbe2m5l7sjogrbshui9d61ku.apps.googleusercontent.com",
+                ClientSecret = "IoWE_DwofQr1AHvwTvuw2p0m"
+            });
         }
     }
 }

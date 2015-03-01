@@ -29,5 +29,7 @@ namespace DevNet.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DevNet.Models.Developer> Developers { get; set; }
     }
 }

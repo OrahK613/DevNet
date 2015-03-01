@@ -74,3 +74,5 @@ C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\bin\Microsoft.Owin.Security.
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Debug\ApplicationInsights.config
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Debug\DevNet.dll
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Debug\DevNet.pdb
+C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Debug\DevNet.Migrations.Initial.resources
+C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Debug\DevNet.csproj.GenerateResource.Cache
