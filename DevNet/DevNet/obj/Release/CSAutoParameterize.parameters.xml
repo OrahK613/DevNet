@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-DevNet-20150301024013.mdf;Initial Catalog=aspnet-DevNet-20150301024013;Integrated Security=True" tags="SqlConnectionString">
+  <parameter name="DevNet-Web.config Connection String" description="DevNet Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:g74xl0join.database.windows.net,1433;Initial Catalog=DevNet;User ID=OrahK613@g74xl0join;Password=OKeter613" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Orah\\Documents\\GitHub\\DevNet\\DevNet\\DevNet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DevNet']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Orah\\Documents\\GitHub\\DevNet\\DevNet\\DevNet\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="DefaultConnection_DatabasePublish-Web.config Connection String" description="DefaultConnection_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_DatabasePublish.ConnetionString" tags="SqlConnectionString">

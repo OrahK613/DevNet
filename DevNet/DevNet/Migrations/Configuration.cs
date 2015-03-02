@@ -9,7 +9,7 @@ namespace DevNet.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DevNet.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -17,7 +17,7 @@ namespace DevNet.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(DevNet.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             AddUserAndRole(context);
             context.Developers.AddOrUpdate(p => new { p.LastName, p.FirstName },
@@ -30,6 +30,7 @@ namespace DevNet.Migrations
                 StateID = 35,
                 Zip = "10999",
                 Email = "debra@example.com",
+                FavoriteLanguage = "C#"
             },
              new Developer
              {
@@ -40,6 +41,7 @@ namespace DevNet.Migrations
                  StateID = 35,
                  Zip = "10999",
                  Email = "thorsten@example.com",
+                 FavoriteLanguage = "C#"
              },
              new Developer
              {
@@ -50,6 +52,7 @@ namespace DevNet.Migrations
                  StateID = 35,
                  Zip = "10999",
                  Email = "yuhong@example.com",
+                 FavoriteLanguage = "C++"
              },
              new Developer
              {
@@ -60,6 +63,7 @@ namespace DevNet.Migrations
                  StateID = 35,
                  Zip = "10999",
                  Email = "jon@example.com",
+                 FavoriteLanguage = "C++"
              },
              new Developer
              {
@@ -70,6 +74,7 @@ namespace DevNet.Migrations
                  StateID = 35,
                  Zip = "10999",
                  Email = "diliana@example.com",
+                 FavoriteLanguage = "Java"
              }
              );
         }
