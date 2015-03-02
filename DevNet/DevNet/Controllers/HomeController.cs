@@ -10,17 +10,23 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace DevNet.Controllers
 {
-  
+
     public class HomeController : Controller
     {
         [AllowAnonymous]
         public ActionResult Index()
         {
+
+            // List<Automobile> lstAutomobiles = null;
+
             InvokeRequestResponseService().Wait();
-            
+
+            //ViewData["lstAutomobiles"] = lstAutomobiles;
+
             return View();
         }
 
@@ -52,7 +58,9 @@ namespace DevNet.Controllers
                             new AutoPriceWebService() 
                             {
                                 ColumnNames = new string[] {"make", "body-style", "wheel-base", "engine-size", "horsepower", "peak-rpm", "highway-mpg", "price"},
-                                Values = new string[,] {  { "value", "value", "0", "0", "0", "0", "0", "0" },  { "value", "value", "0", "0", "0", "0", "0", "0" },  }
+                                Values = new string[,] {  { "audi", "sedan", "99.8", "109", "102", "5500", "30", "13495" },  { "audi", "sedan", "97.5", "112", "130", "4700", "35", "12700" },  }
+
+                     
                             }
                         },
                                         },
@@ -73,12 +81,31 @@ namespace DevNet.Controllers
                 //      result = await DoSomeTask().ConfigureAwait(false)
 
 
-                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string result = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("Result: {0}", result);
+                    // string result = await response.Content.ReadAsStringAsync();
+
+
+
+                    var lstAutomobiles = await response.Content.ReadAsStringAsync().ContinueWith((readTask) =>
+                    {
+
+                        var result = JsonConvert.DeserializeObject(readTask.Result);
+
+
+                        return result;
+
+                        // lstAutomobiles = JsonConvert.DeserializeObject<List<Automobile>>(readTask.Result, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+
+                        //return lstAutomobiles;
+                    });
+
+                    AutoViewModel.Automobiles = lstAutomobiles;
+
+                    //ViewBag["lstAutomobiles"] = lstAutomobiles;
+                    // Console.WriteLine("Result: {0}", result);
                 }
                 else
                 {

@@ -1,123 +1,146 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+    @using DevNet.Models;
+    @{
+        ViewBag.Title = "Home Page";
 
-<div class="jumbotron">
-    <h1>Test Page for Automobile Price Predictive Analyics</h1>
-    <p class="lead">Here is where I am practicing consuming a predictive analytics web service created from an experiment in Azure's Machine Learning.</p>
-    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
-</div>
+        var lstAutomobiles = AutoViewModel.Automobiles;
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Web Service Results</h2>
-        
-        <div id="body">
-            <input type="button" id="btnGetPricePrediction" value="Click to get price prediction"/>
-            <div id="result"></div>
-        </div>
-        
-       
-    </div>
-    
-</div>
 
-<script src="~/Scripts/jquery-2.1.3.min.js"></script>
-<script type="text/javascript">
 
-   $(document).ready(function () {
-       $("#btnGetPricePrediction").click(function () { 
-       
-           jQuery.support.cors = true;
-            
-            var inputParameters = GetInputParameters();
+        dynamic stuff = Newtonsoft.Json.JsonConvert.DeserializeObject(lstAutomobiles.ToString());
 
-            $.ajax({
+        var Results = stuff.Results;
+        var output1 = stuff.Results.output1;
+        var value = stuff.Results.output1.value;
+        var ColumnNames = stuff.Results.output1.value.ColumnNames[0].Value;
 
-                url: "https://ussouthcentral.services.azureml.net/workspaces/e9f90a212fdc446f99acab120ed88a0a/services/7878c88be93640cab6b38c92d76bff8c/execute?api-version=2.0&details=true",
+        var values = stuff.Results.output1.value.Values.Count;
+        var value1 = stuff.Results.output1.value.Values[0][0].Value;
+        var value2 = stuff.Results.output1.value.Values[1][0].Value;
 
-                headers: { Authorization: "Bearer NJYRbTJFaeEoVA4JvkmuKIRepVdvJ6UFMaYYTjcYizgdqV1pd9TMEL77Shu+zKvOAcYA/dZuQeeUgY2DUp7Cnw==", ContentLength: inputParameters.length, contentType: "application/json;charset=utf-8", Accept: "application/JSON" },
 
-                type: "POST",
 
-                dataType: "json",
 
-               // data: JSON.stringify(inputParameters),
-                data: inputParameters,
-
-                success: function (data) {
-
-                    alert('Got price prediction successfully!');
-                    $("#result").html(data);
-
-                },
-
-                error: function (msg, url, line) {
-                    alert('error trapped in error: function(msg, url, line)');
-                    alert('msg = ' + msg + ', url = ' + url + ', line = ' + line);
-
-                }
-
-            });
-            
-       });
-
-    });
-
-    function GetInputParameters() {
-
-        var inputParameters = {
-            "Inputs": {
-                "input1": {
-                    "ColumnNames": [
-                        "make",
-                        "body-style",
-                        "wheel-base",
-                        "engine-size",
-                        "horsepower",
-                        "peak-rpm",
-                        "highway-mpg",
-                        "price"
-                    ],
-                    "Values": [
-                        "audi",
-                        "sedan",
-                        99.8,
-                        109,
-                        102,
-                        5500,
-                        30,
-                        13495
-                    ]
-                }
-            },
-            "GlobalParameters": {}
-        }
-
-        //var inputParameters = {
-        //    "Inputs": {
-
-        //        "make": "audi",
-
-        //        "body-style": "sedan",
-
-        //        "wheel-base": 99.8,
-
-        //        "engine-size": 109,
-
-        //        "horsepower": 102,
-
-        //        "peak-rpm": 5500,
-
-        //        "highway-mpg": 30,
-
-        //        "price": 13495
-
-        //    }
-        //};
-
-        return inputParameters;
 
     }
+    <div class="jumbotron">
+        <h1>Test Page for Automobile Price Predictive Analyics</h1>
+        <p class="lead">Here is where I am practicing consuming a predictive analytics web service created from an experiment in Azure's Machine Learning.</p>
+        @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    </div>
 
-</script>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Web Service Results</h2>
+
+            <div id="body">
+                @*<input type="button" id="btnGetPricePrediction" value="Click to get price prediction"/>*@
+                <div id="result">@ColumnNames</div>
+                <div id="result">@value1</div>
+                <div id="result">@value2</div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    @*<script src="~/Scripts/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript">
+
+           $(document).ready(function () {
+               $("#btnGetPricePrediction").click(function () {
+
+                   jQuery.support.cors = true;
+
+                    var inputParameters = GetInputParameters();
+
+                    $.ajax({
+
+                        url: "https://ussouthcentral.services.azureml.net/workspaces/e9f90a212fdc446f99acab120ed88a0a/services/7878c88be93640cab6b38c92d76bff8c/execute?api-version=2.0&details=true",
+
+                        headers: { Authorization: "Bearer NJYRbTJFaeEoVA4JvkmuKIRepVdvJ6UFMaYYTjcYizgdqV1pd9TMEL77Shu+zKvOAcYA/dZuQeeUgY2DUp7Cnw==", ContentLength: inputParameters.length, contentType: "application/json;charset=utf-8", Accept: "application/JSON" },
+
+                        type: "POST",
+
+                        dataType: "json",
+
+                       // data: JSON.stringify(inputParameters),
+                        data: inputParameters,
+
+                        success: function (data) {
+
+                            alert('Got price prediction successfully!');
+                            $("#result").html(data);
+
+                        },
+
+                        error: function (msg, url, line) {
+                            alert('error trapped in error: function(msg, url, line)');
+                            alert('msg = ' + msg + ', url = ' + url + ', line = ' + line);
+
+                        }
+
+                    });
+
+               });
+
+            });
+
+            function GetInputParameters() {
+
+                var inputParameters = {
+                    "Inputs": {
+                        "input1": {
+                            "ColumnNames": [
+                                "make",
+                                "body-style",
+                                "wheel-base",
+                                "engine-size",
+                                "horsepower",
+                                "peak-rpm",
+                                "highway-mpg",
+                                "price"
+                            ],
+                            "Values": [
+                                "audi",
+                                "sedan",
+                                99.8,
+                                109,
+                                102,
+                                5500,
+                                30,
+                                13495
+                            ]
+                        }
+                    },
+                    "GlobalParameters": {}
+                }
+
+                //var inputParameters = {
+                //    "Inputs": {
+
+                //        "make": "audi",
+
+                //        "body-style": "sedan",
+
+                //        "wheel-base": 99.8,
+
+                //        "engine-size": 109,
+
+                //        "horsepower": 102,
+
+                //        "peak-rpm": 5500,
+
+                //        "highway-mpg": 30,
+
+                //        "price": 13495
+
+                //    }
+                //};
+
+                return inputParameters;
+
+            }
+
+        </script>*@
