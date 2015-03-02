@@ -36,7 +36,6 @@ namespace DevNet.Controllers
         }
 
         // GET: Developers/Create
-        [Authorize(Roles = "canEdit")]
         public ActionResult Create()
         {
             return View();
@@ -47,8 +46,7 @@ namespace DevNet.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
-        public ActionResult Create([Bind(Include = "DeveloperID,FirstName,LastName,Address,City,StateID,Zip,Email")] Developer developer)
+        public ActionResult Create([Bind(Include = "DeveloperID,FirstName,LastName,Address,City,StateID,Zip,Email,FavoriteLanguage")] Developer developer)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +59,6 @@ namespace DevNet.Controllers
         }
 
         // GET: Developers/Edit/5
-         [Authorize(Roles = "canEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,8 +78,7 @@ namespace DevNet.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
-        public ActionResult Edit([Bind(Include = "DeveloperID,FirstName,LastName,Address,City,StateID,Zip,Email")] Developer developer)
+        public ActionResult Edit([Bind(Include = "DeveloperID,FirstName,LastName,Address,City,StateID,Zip,Email,FavoriteLanguage")] Developer developer)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +90,6 @@ namespace DevNet.Controllers
         }
 
         // GET: Developers/Delete/5
-         [Authorize(Roles = "canEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,7 +107,6 @@ namespace DevNet.Controllers
         // POST: Developers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "canEdit")]
         public ActionResult DeleteConfirmed(int id)
         {
             Developer developer = db.Developers.Find(id);

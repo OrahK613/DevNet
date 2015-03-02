@@ -216,9 +216,14 @@
     <Compile Include="Migrations\201503010901521_Initial.Designer.cs">
       <DependentUpon>201503010901521_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503012348146_AddFavoriteLanguages.cs" />
+    <Compile Include="Migrations\201503012348146_AddFavoriteLanguages.Designer.cs">
+      <DependentUpon>201503012348146_AddFavoriteLanguages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Developer.cs" />
+    <Compile Include="Models\DeveloperInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,7 +270,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -315,6 +322,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503010901521_Initial.resx">
       <DependentUpon>201503010901521_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503012348146_AddFavoriteLanguages.resx">
+      <DependentUpon>201503012348146_AddFavoriteLanguages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

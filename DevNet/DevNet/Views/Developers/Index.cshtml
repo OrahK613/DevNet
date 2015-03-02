@@ -32,6 +32,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FavoriteLanguage)
+        </th>
         <th></th>
     </tr>
 
@@ -57,6 +60,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FavoriteLanguage)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DeveloperID }) |
