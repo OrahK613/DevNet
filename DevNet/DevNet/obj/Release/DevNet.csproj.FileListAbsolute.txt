@@ -77,3 +77,4 @@ C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Release\ApplicationInsig
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Release\DevNet.dll
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Release\DevNet.pdb
 C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Release\DevNet.csprojResolveAssemblyReference.cache
+C:\Users\Orah\Documents\GitHub\DevNet\DevNet\DevNet\obj\Release\DevNet.Migrations.AddFavoriteLanguage.resources
