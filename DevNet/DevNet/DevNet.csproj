@@ -139,6 +139,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -216,14 +217,14 @@
     <Compile Include="Migrations\201503010901521_Initial.Designer.cs">
       <DependentUpon>201503010901521_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503012348146_AddFavoriteLanguages.cs" />
-    <Compile Include="Migrations\201503012348146_AddFavoriteLanguages.Designer.cs">
-      <DependentUpon>201503012348146_AddFavoriteLanguages.cs</DependentUpon>
+    <Compile Include="Migrations\201503020141556_AddFavoriteLanguage.cs" />
+    <Compile Include="Migrations\201503020141556_AddFavoriteLanguage.Designer.cs">
+      <DependentUpon>201503020141556_AddFavoriteLanguage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AutoPriceWebService.cs" />
     <Compile Include="Models\Developer.cs" />
-    <Compile Include="Models\DeveloperInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -323,8 +324,8 @@
     <EmbeddedResource Include="Migrations\201503010901521_Initial.resx">
       <DependentUpon>201503010901521_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503012348146_AddFavoriteLanguages.resx">
-      <DependentUpon>201503012348146_AddFavoriteLanguages.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503020141556_AddFavoriteLanguage.resx">
+      <DependentUpon>201503020141556_AddFavoriteLanguage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
