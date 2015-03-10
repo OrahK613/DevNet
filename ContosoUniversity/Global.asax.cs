@@ -9,6 +9,7 @@ using ContosoUniversity.DAL;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Configuration;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Infrastructure;
 
 namespace ContosoUniversity
 {
@@ -27,6 +28,9 @@ namespace ContosoUniversity
             if (bool.Parse(ConfigurationManager.AppSettings["MigrateDatabaseToLatestVersion"]))
             {
                 var configuration = new ContosoUniversity.Migrations.Configuration();
+                configuration.TargetDatabase = new DbConnectionInfo(
+                "Server=tcp:g74xl0join.database.windows.net,1433;Database=DevNet;User ID=OrahK613@g74xl0join;Password=OKeter613;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;",
+                "System.Data.SqlClient");
                 var migrator = new DbMigrator(configuration);
                 migrator.Update();
             }
