@@ -1,0 +1,68 @@
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.dll.config
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.pdb
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\Antlr3.Runtime.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\Microsoft.Web.Infrastructure.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\Newtonsoft.Json.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Helpers.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Mvc.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Optimization.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Razor.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Deployment.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Razor.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\WebGrease.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Helpers.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Mvc.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Optimization.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.Razor.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Deployment.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Razor.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\Antlr3.Runtime.pdb
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\Newtonsoft.Json.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.pdb
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\EntityFramework.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\EntityFramework.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\PagedList.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.dll
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\PagedList.xml
+c:\users\denisekittrell\documents\visual studio 2013\Projects\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.pdb
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.dll.config
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\ContosoUniversity.pdb
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\Antlr3.Runtime.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\EntityFramework.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\Microsoft.Web.Infrastructure.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\Newtonsoft.Json.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\PagedList.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Helpers.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Mvc.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Optimization.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Razor.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Deployment.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Razor.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\WebGrease.dll
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\EntityFramework.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\EntityFramework.SqlServer.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\PagedList.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\PagedList.Mvc.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Helpers.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Mvc.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Optimization.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.Razor.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Deployment.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\System.Web.WebPages.Razor.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\Antlr3.Runtime.pdb
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\bin\Newtonsoft.Json.xml
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.Migrations.InitialCreate.resources
+C:\Classes Spring 2015\CPDM-290_Capstone\Part 3\ContosoUniversity\ContosoUniversity\obj\Debug\ContosoUniversity.csproj.GenerateResource.Cache
