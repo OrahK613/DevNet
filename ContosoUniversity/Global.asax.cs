@@ -7,6 +7,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using ContosoUniversity.DAL;
 using System.Data.Entity.Infrastructure.Interception;
+using System.Configuration;
+using System.Data.Entity.Migrations;
 
 namespace ContosoUniversity
 {
@@ -20,6 +22,16 @@ namespace ContosoUniversity
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbInterception.Add(new SchoolInterceptorTransientErrors());
             DbInterception.Add(new SchoolInterceptorLogging());
+
+            // Only run migrations if the setting is true
+            if (bool.Parse(ConfigurationManager.AppSettings["MigrateDatabaseToLatestVersion"]))
+            {
+                var configuration = new ContosoUniversity.Migrations.Configuration();
+                var migrator = new DbMigrator(configuration);
+                migrator.Update();
+            }
+
+
         }
     }
 }
