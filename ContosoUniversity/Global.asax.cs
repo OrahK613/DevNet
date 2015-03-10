@@ -10,6 +10,7 @@ using System.Data.Entity.Infrastructure.Interception;
 using System.Configuration;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 
 namespace ContosoUniversity
 {
