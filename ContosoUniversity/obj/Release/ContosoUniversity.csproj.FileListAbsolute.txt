@@ -70,3 +70,4 @@ C:\Users\DeniseKittrell\Documents\GitHub\ContosoUniversity\ContosoUniversity\obj
 C:\Users\DeniseKittrell\Documents\GitHub\ContosoUniversity\ContosoUniversity\obj\Release\ContosoUniversity.csproj.GenerateResource.Cache
 C:\Users\DeniseKittrell\Documents\GitHub\ContosoUniversity\ContosoUniversity\obj\Release\ContosoUniversity.dll
 C:\Users\DeniseKittrell\Documents\GitHub\ContosoUniversity\ContosoUniversity\obj\Release\ContosoUniversity.pdb
+C:\Users\DeniseKittrell\Documents\GitHub\ContosoUniversity\ContosoUniversity\obj\Release\ContosoUniversity.Migrations.DepartmentSP.resources
