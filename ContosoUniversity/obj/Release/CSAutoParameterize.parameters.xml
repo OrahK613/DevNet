@@ -3,7 +3,4 @@
   <parameter name="SchoolContext-Web.config Connection String" description="SchoolContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=ContosoUniversity2;Integrated Security=SSPI;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Orah\\Documents\\GitHub\\ContosoUniversity\\ContosoUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SchoolContext']/@connectionString" />
   </parameter>
-  <parameter name="SchoolContext_DatabasePublish-Web.config Connection String" description="SchoolContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="SchoolContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Orah\\Documents\\GitHub\\ContosoUniversity\\ContosoUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SchoolContext_DatabasePublish']/@connectionString" />
-  </parameter>
 </parameters>
