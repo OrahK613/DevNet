@@ -11,23 +11,30 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using System.ServiceModel.Syndication;
+using System.Xml;
 
 namespace DevNet.Controllers
 {
 
     public class HomeController : Controller
     {
+
+        // GET: /Home/
+        public NoticiasModel noticiasModel = new NoticiasModel();
+        
         [AllowAnonymous]
         public ActionResult Index()
         {
 
-            // List<Automobile> lstAutomobiles = null;
-
             InvokeRequestResponseService().Wait();
 
-            //ViewData["lstAutomobiles"] = lstAutomobiles;
-
+            // Just Added RSS Feed Stuff
+            // http://www.docstorus.com/viewer.aspx?code=6db72a9d-b825-4d49-8bc1-267891dc1d14
+       
+            ViewData["ultimasNoticias"] = noticiasModel.GetUltimasNoticias();
             return View();
+        
         }
 
         public ActionResult About()
@@ -87,25 +94,13 @@ namespace DevNet.Controllers
                 {
                     // string result = await response.Content.ReadAsStringAsync();
 
-
-
                     var lstAutomobiles = await response.Content.ReadAsStringAsync().ContinueWith((readTask) =>
                     {
-
                         var result = JsonConvert.DeserializeObject(readTask.Result);
-
-
                         return result;
-
-                        // lstAutomobiles = JsonConvert.DeserializeObject<List<Automobile>>(readTask.Result, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
-
-                        //return lstAutomobiles;
                     });
 
                     AutoViewModel.Automobiles = lstAutomobiles;
-
-                    //ViewBag["lstAutomobiles"] = lstAutomobiles;
-                    // Console.WriteLine("Result: {0}", result);
                 }
                 else
                 {

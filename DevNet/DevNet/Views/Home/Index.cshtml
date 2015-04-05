@@ -5,8 +5,6 @@
 
         var lstAutomobiles = AutoViewModel.Automobiles;
 
-
-
         dynamic stuff = Newtonsoft.Json.JsonConvert.DeserializeObject(lstAutomobiles.ToString());
 
         var Results = stuff.Results;
@@ -17,10 +15,6 @@
         var values = stuff.Results.output1.value.Values.Count;
         var value1 = stuff.Results.output1.value.Values[0][0].Value;
         var value2 = stuff.Results.output1.value.Values[1][0].Value;
-
-
-
-
 
     }
     <div class="jumbotron">
@@ -40,7 +34,14 @@
                 <div id="result">@value2</div>
             </div>
 
-
+           
+            <ul>
+                @foreach (System.ServiceModel.Syndication.SyndicationItem noticia in (List<System.ServiceModel.Syndication.SyndicationItem>)ViewData["ultimasNoticias"])
+                    {
+                    <li><a href="@noticia.Id" target="_blank">@noticia.Title.Text </a></li>
+                    }
+            </ul>
+            
         </div>
 
     </div>

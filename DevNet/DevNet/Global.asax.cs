@@ -22,8 +22,9 @@ namespace DevNet
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, DevNet.Migrations.Configuration>());
 
+
             // Only run migrations if the setting is true
-           // if (bool.Parse(ConfigurationManager.AppSettings["MigrateDatabaeToLatestVersion"]))
+            //if (bool.Parse(ConfigurationManager.AppSettings["MigrateDatabaeToLatestVersion"]))
             //{
                 //var configuration = new DevNet.Migrations.Configuration();
                 //configuration.TargetDatabase = new System.Data.Entity.Infrastructure.DbConnectionInfo("DefaultConnection_DatabasePublish");
