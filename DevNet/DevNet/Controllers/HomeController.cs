@@ -1,24 +1,20 @@
-﻿using DevNet.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using Newtonsoft.Json;
 using System.ServiceModel.Syndication;
 using System.Xml;
+=======
+>>>>>>> f5c4996c2d95ded4624d8ac2b91573af5262a899
 
 namespace DevNet.Controllers
 {
-
     public class HomeController : Controller
     {
+<<<<<<< HEAD
 
         // GET: /Home/
         public NoticiasModel noticiasModel = new NoticiasModel();
@@ -33,6 +29,10 @@ namespace DevNet.Controllers
             // http://www.docstorus.com/viewer.aspx?code=6db72a9d-b825-4d49-8bc1-267891dc1d14
        
             ViewData["ultimasNoticias"] = noticiasModel.GetUltimasNoticias();
+=======
+        public ActionResult Index()
+        {
+>>>>>>> f5c4996c2d95ded4624d8ac2b91573af5262a899
             return View();
         
         }
@@ -50,6 +50,7 @@ namespace DevNet.Controllers
 
             return View();
         }
+<<<<<<< HEAD
 
 
         static async Task InvokeRequestResponseService()
@@ -108,5 +109,7 @@ namespace DevNet.Controllers
                 }
             }
         }
+=======
+>>>>>>> f5c4996c2d95ded4624d8ac2b91573af5262a899
     }
 }
