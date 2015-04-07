@@ -5,6 +5,21 @@
     {
     @Html.AntiForgeryToken()
 
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+       
+        <li>@Html.ActionLink("Dashboard", "Dashboard", "Dashboard")</li>
+        <li>@Html.ActionLink("DevTV", "DevTV", "DevTV")</li>
+        <li>@Html.ActionLink("Profile", "Contact", "Home")</li>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <li>@Html.ActionLink("Manage Site", "Manage", "Home")</li>
+            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+        }
+    </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
@@ -15,6 +30,13 @@
 }
 else
 {
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Dashboard", "Dashboard", "Dashboard")</li>
+
+    </ul>
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>

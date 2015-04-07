@@ -8,6 +8,11 @@ namespace DevNet.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Cover()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -15,7 +20,7 @@ namespace DevNet.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "CPDM 290 - Capstone Project";
 
             return View();
         }
