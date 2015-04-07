@@ -1,58 +1,59 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    
-    
-    
-}
+ }
 
 <style>
 
     .logo
     {
         background-image: url(~/Content/logos/full_logo.png);
+        z-index: 100;
     }
+    .nobullets
+    {
+        list-style-type: none;
+    }
+    .darkscreen
+    {
+         color: #544444;
+         padding: 25px;
+         background-color: rgba(255,255,255,.5);
+         border-radius: 30px;
+         border: 2px solid #FFFFFF;
+         box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(255, 255, 255, 0.6);
+         position: relative;
+         top: 25px;
+         left: 105px;
+         height: 300px;
+         width: 400px;
+         z-index: 200;
+    }
+   
 
 </style>
-
 <div class="logo">
-
     <div class="jumbotron">
-        @*<h1>DEVNET</h1>*@
+
+        <div class="darkscreen">
+
+            <p class="lead">DevNet is a portal that serves as an online community for developers and IT employeers to network and talk about technology as well as share knowledge.</p>
+
+            <ul style="list-style-type: none;"><li style="list-style-type: none;">@Html.ActionLink("Learn more", "About", "Home", new { @class = "btn btn-primary btn-lg nobullets" })&raquo;</li></ul>
 
 
-        <p class="lead">DevNet is a portal that serves as an online community for developers and IT employeers to network and talk about technology as well as share knowledge.</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>ASP.NET RSS Feed</h2>
-            <ul>
-                <li>Learn about the latest in ASP.NET Web API 2</li>
-                <li>Build realtime web applications with SignalR.</li>
-                <li>Deploy a Mobile-Friendly ASP.NET MVC 5 Web Application on Windows Azure Web Sites</li>
-                <li>Develop iPhone applications with ASP.NET</li>
-            </ul>
         </div>
-        @*<div class="col-md-4">
-                <h2>Getting started</h2>
-                <p>
-                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                    enables a clean separation of concerns and gives you full control over markup
-                    for enjoyable, agile development.
-                </p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-            </div>*@
-        @*<div class="col-md-4">
-                <h2>Get more libraries</h2>
-                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Web Hosting</h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-            </div>*@
     </div>
 
+    @*<div class="row">
+            <div class="col-md-4">
+                <h2>ASP.NET RSS Feed</h2>
+                <ul>
+                    <li>Learn about the latest in ASP.NET Web API 2</li>
+                    <li>Build realtime web applications with SignalR.</li>
+                    <li>Deploy a Mobile-Friendly ASP.NET MVC 5 Web Application on Windows Azure Web Sites</li>
+                    <li>Develop iPhone applications with ASP.NET</li>
+                </ul>
+            </div>
+
+        </div>*@
 </div>

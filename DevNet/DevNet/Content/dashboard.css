@@ -3,10 +3,22 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
+
+@font-face 
+{
+  font-family: 'rosario';
+  font-size: 14pt;
+  src: url('../fonts/Rosario-Bold.ttf');
+}
+
+
+
 body {
+  font-family: 'rosario', Arial, verdana;
+  font-size: 12pt;
   padding-top: 50px;
-  background-color: #333;
-  color: #ee356c;
+  background-color: #000;
+  color: #ff005a;
 }
 
 

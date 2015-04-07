@@ -7,29 +7,43 @@
 
     <ul class="nav navbar-nav">
 
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("About", "About", "Home")</li>
-       
+
         <li>@Html.ActionLink("Dashboard", "Dashboard", "Dashboard")</li>
         <li>@Html.ActionLink("DevTV", "DevTV", "DevTV")</li>
-        <li>@Html.ActionLink("Profile", "Contact", "Home")</li>
+        @*<li>@Html.ActionLink("Profile", "Contact", "Home")</li>*@
         @if (Request.IsAuthenticated && User.IsInRole("Admin"))
         {
-            <li>@Html.ActionLink("Manage Site", "Manage", "Home")</li>
-            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-        }
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Administration<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="nav-header">Site Management</li>
+                    <li><a href="#">@Html.ActionLink("Manage Site", "Manage", "Home")</a></li>  
+                    <li>@Html.ActionLink("Favorite IDEs", "Index", "FavoriteIDE")</li>
+                    <li>@Html.ActionLink("Software Specialties", "Index", "SoftwareSpecialty")</li>
+                    <li>@Html.ActionLink("Programming Languages", "Index", "ProgrammingLanguage")</li>
+                       
+                  
+                    <li class="divider"></li>
+                    <li class="nav-header">User/Roles Management</li>
+                    <li>@Html.ActionLink("Users", "Index", "UsersAdmin")</li>
+                    <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
+                </ul>
+            </li>
+          }
     </ul>
     <ul class="nav navbar-nav navbar-right">
+        <li class="divider-vertical"></li>
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
-}
-else
-{
+    }
+    else
+    {
     <ul class="nav navbar-nav">
 
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -38,7 +52,12 @@ else
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
+        <li class="divider-vertical"></li>
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+
+
+
+
