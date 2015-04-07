@@ -36,10 +36,34 @@ namespace DevNet.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        // Concatenate the address info for display in tables and such:
+        public string DisplayAddress
+        {
+           get
+           {
+                string dspAddress = string.IsNullOrWhiteSpace(this.Address) ? "" : this.Address;
+                string dspCity = string.IsNullOrWhiteSpace(this.City) ? "" : this.City;
+                string dspState = "";
+                if (this.State != null)
+                {
+                  
+                    dspState = string.IsNullOrWhiteSpace(this.State.StateAbbreviation) ? "" : this.State.StateAbbreviation;
+                }
+                else
+                {
+                    dspState = "some state";
+                }
+               
+                return string.Format("{0} {1} {2}", dspAddress, dspCity, dspState );
+            }
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+       
+        
         public DbSet<State> States { get; set; }
         public DbSet<FavoriteIDE> FavoriteIDEs { get; set; }
         public DbSet<SoftwareSpecialty> SoftwareSpecialties { get; set; }
@@ -48,6 +72,13 @@ namespace DevNet.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+        }
+
+        static ApplicationDbContext()
+        {
+            // Set the database intializer which is run once during application start
+            // This seeds the database with admin user credentials and admin role
+            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
         }
 
         public static ApplicationDbContext Create()

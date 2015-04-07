@@ -26,5 +26,12 @@ namespace DevNet.Controllers
 
             return View();
         }
+
+        public ActionResult Manage()
+        {
+            ViewBag.Message = "Manage site here.";
+
+            return View();
+        }
     }
 }

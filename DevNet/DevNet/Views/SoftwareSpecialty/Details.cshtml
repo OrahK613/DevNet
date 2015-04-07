@@ -1,0 +1,27 @@
+﻿@model DevNet.Models.SoftwareSpecialty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SoftwareSpecialty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareSpecialtyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareSpecialtyName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SoftwareSpecialtyID }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Manage Site", "Manage", "Home")
+</p>

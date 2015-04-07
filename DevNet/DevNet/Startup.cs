@@ -1,7 +1,7 @@
-﻿using Microsoft.Owin;
+﻿//using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(DevNet.Startup))]
+//[assembly: OwinStartupAttribute(typeof(DevNet.Startup))]
 namespace DevNet
 {
     public partial class Startup

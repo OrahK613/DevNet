@@ -1,0 +1,27 @@
+﻿@model DevNet.Models.FavoriteIDE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FavoriteIDE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoriteIDEName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoriteIDEName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FavoriteIDEID }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Manage Site", "Manage", "Home")
+</p>

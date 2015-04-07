@@ -198,8 +198,13 @@
     <Compile Include="Bootstrap Html Helpers\DatePickerFor.cs" />
     <Compile Include="Bootstrap Html Helpers\HelperMethods.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FavoriteIDEController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProgrammingLanguageController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\SoftwareSpecialtyController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,8 +212,13 @@
     <Compile Include="Migrations\201504051020464_InitialCreate.Designer.cs">
       <DependentUpon>201504051020464_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504070131129_Roles.cs" />
+    <Compile Include="Migrations\201504070131129_Roles.Designer.cs">
+      <DependentUpon>201504070131129_Roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\FavoriteIDE.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -390,6 +400,33 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\FavoriteIDE\Create.cshtml" />
+    <Content Include="Views\FavoriteIDE\Delete.cshtml" />
+    <Content Include="Views\FavoriteIDE\Details.cshtml" />
+    <Content Include="Views\FavoriteIDE\Edit.cshtml" />
+    <Content Include="Views\FavoriteIDE\Index.cshtml" />
+    <Content Include="Views\Home\Manage.cshtml" />
+    <Content Include="Views\SoftwareSpecialty\Create.cshtml" />
+    <Content Include="Views\SoftwareSpecialty\Delete.cshtml" />
+    <Content Include="Views\SoftwareSpecialty\Details.cshtml" />
+    <Content Include="Views\SoftwareSpecialty\Edit.cshtml" />
+    <Content Include="Views\SoftwareSpecialty\Index.cshtml" />
+    <Content Include="Views\ProgrammingLanguage\Create.cshtml" />
+    <Content Include="Views\ProgrammingLanguage\Delete.cshtml" />
+    <Content Include="Views\ProgrammingLanguage\Details.cshtml" />
+    <Content Include="Views\ProgrammingLanguage\Edit.cshtml" />
+    <Content Include="Views\ProgrammingLanguage\Index.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\UsersAdmin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,6 +438,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504051020464_InitialCreate.resx">
       <DependentUpon>201504051020464_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504070131129_Roles.resx">
+      <DependentUpon>201504070131129_Roles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
