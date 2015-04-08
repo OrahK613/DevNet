@@ -17,6 +17,16 @@
 
 
 
+html {
+  font-family: 'rosario', Arial, verdana;
+    font-size: 12pt;
+ 
+  background-image: url(textures/deep-red-fractal.png);
+  z-index: 50;
+  background-attachment: fixed;
+}
+
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -25,17 +35,17 @@ body {
 
     font-family: 'rosario', Arial, verdana;
     font-size: 12pt;
-    background-image: url(textures/deep-red-fractal.png);
+    /*background-image: url(textures/deep-red-fractal.png);
     z-index: 50;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
 }
 
 
-.logo
+/*.logo
 {
     background-image: url(logos/full_logo.png);
     z-index: 100;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -68,7 +78,7 @@ jumbotron {
   background-color: #eeeeee;  
   background-image: url(logos/full_logo.png);
   height: 800px;
-
+  z-index: 100;
 }
 
 

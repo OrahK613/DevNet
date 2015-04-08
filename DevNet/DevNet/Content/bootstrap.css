@@ -69,21 +69,6 @@ audio:not([controls]) {
 
 
 
-html {
-  font-family: 'rosario', Arial, verdana;
-    font-size: 12pt;
-  /*font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;*/
-  background-image: url(textures/deep-red-fractal.png);
-  z-index: 50;
-  background-attachment: fixed;
-}
-
-body {
-  margin: 0;
-}
-
 a:focus {
   outline: thin dotted;
 }
@@ -337,15 +322,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
-  /*color: #333333;
-  background-color: #ffffff;*/
-
-
-  /*background-color: #333;
-    color: #ee356c;
-
-  */
-
   background-color: #000;
   color: #ff005a;
 }
