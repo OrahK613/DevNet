@@ -388,6 +388,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\logo_cube.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />

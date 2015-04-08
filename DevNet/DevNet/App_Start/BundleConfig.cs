@@ -28,7 +28,8 @@ namespace DevNet
 
          
             bundles.Add(new ScriptBundle("~/bundles/three").Include(
-                     "~/Scripts/three.min.js"));
+                     "~/Scripts/three.min.js",
+                     "~/Scripts/logo_cube.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
