@@ -10,15 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - DevNet Portal</title>
 
-    @*@Scripts.Render("~/bundles/three")*@
-    
     <script src="~/Scripts/three.min.js"></script>
-    @*<script src="~/Scripts/logo_cube.js"></script>*@
 
- 
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <style type="text/css">
 
+        
 
-    <style>
         body {
             margin: 0px;
             background-color: #000000;
@@ -27,8 +25,8 @@
 
         .begin {
             /*margin-top: 50px;*/
-            height: 55px;
-            padding: 10px;
+            height: 70px;
+            padding: 5px;
             width: 100%;
             color: #ff005a;
             font-weight: bold;
@@ -42,6 +40,8 @@
 
             .begin a {
                 color: #ff005a;
+                font-family: 'heavy_data', Arial, verdana;
+                font-size: 60pt;
             }
 
                 .begin a:focus {

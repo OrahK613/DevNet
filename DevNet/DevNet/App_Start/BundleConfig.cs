@@ -29,6 +29,7 @@ namespace DevNet
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/datepicker3.css",
+                      "~/Content/Site.css",
                       "~/Content/bootstrap.css"));
         }
     }

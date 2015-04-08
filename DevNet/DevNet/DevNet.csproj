@@ -249,9 +249,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\button-icon.png" />
     <Content Include="Content\logos\full_logo.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\textures\crate.gif" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\datepicker3.css" />

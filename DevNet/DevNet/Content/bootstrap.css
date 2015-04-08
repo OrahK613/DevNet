@@ -26,18 +26,18 @@
   src: url('../fonts/heavy_data.ttf');
 }
 
-@font-face 
+/*@font-face 
 {
   font-family: 'rosario';
-  font-size: 14pt;
+   font-size: 14pt;
   src: url('../fonts/Rosario-Bold.ttf');
-}
+}*/
 
 
 
 html {
-  font-family: 'rosario', Arial, verdana;
-    font-size: 12pt;
+    /*font-family: 'rosario', Arial, verdana;
+     font-size: 14pt;*/
     background-color: #000;
     
     background-image: url(textures/deep-red-fractal.png);
@@ -49,7 +49,10 @@ html {
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-   
+    
+    /*font-family: 'rosario', Arial, verdana;
+    font-size: 14pt;*/
+    background-color: #000;
     color: #ff005a;
    
     background-image: url(textures/deep-red-fractal.png);
@@ -57,7 +60,10 @@ body {
     background-attachment: fixed;
 }
 
-
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'rosario', Arial, verdana;
+}
 
 /*.logo
 {
