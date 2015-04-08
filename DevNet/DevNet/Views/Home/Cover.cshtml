@@ -2,9 +2,6 @@
     Layout = null;
     
   //  ViewBag.Title = "Cover Page";
- var helper = Html.ActionLink("Enter Site Here", "Index", "Home");
- RequestContext requestContext = new RequestContext();
- RouteCollection routeCollection = new RouteCollection();
 }
 
 <!DOCTYPE html>
@@ -110,7 +107,8 @@
             var texture = THREE.ImageUtils.loadTexture('../Content/textures/large_logo.png');
             texture.anisotropy = renderer.getMaxAnisotropy();
 
-            var material = new THREE.MeshBasicMaterial({ map: texture });
+           // var material = new THREE.MeshBasicMaterial({ map: texture });
+            var material = new THREE.MeshBasicMaterial({ color: 0xff005a });
 
             mesh = new THREE.Mesh(geometry, material);
             scene.add(mesh);
