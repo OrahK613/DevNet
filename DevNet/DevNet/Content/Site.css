@@ -1,44 +1,4 @@
-﻿
-@font-face 
-{
-  font-family: 'heavy_data';
-  /*font-weight: 700;*/
-  font-size: 14pt;
-  src: url('../fonts/heavy_data.ttf');
-  /*src: local('Oswald Bold'), local('Oswald-Bold'), url('../fonts/Oswald.eot') format('embedded-opentype'), url('../fonts/Oswald.woff') format('woff');*/
-}
-
-@font-face 
-{
-  font-family: 'rosario';
-  font-size: 14pt;
-  src: url('../fonts/Rosario-Bold.ttf');
-}
-
-
-
-html {
-  font-family: 'rosario', Arial, verdana;
-    font-size: 12pt;
- 
-  background-image: url(textures/deep-red-fractal.png);
-  z-index: 50;
-  background-attachment: fixed;
-}
-
-
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: #000;
-    color: #ff005a;
-
-    font-family: 'rosario', Arial, verdana;
-    font-size: 12pt;
-    /*background-image: url(textures/deep-red-fractal.png);
-    z-index: 50;
-    background-attachment: fixed;*/
-}
+﻿}
 
 
 /*.logo
