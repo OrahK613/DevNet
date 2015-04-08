@@ -34,11 +34,11 @@ function init() {
 
     var geometry = new THREE.BoxGeometry(300, 300, 300);
 
-   // var texture = THREE.ImageUtils.loadTexture('../Content/textures/large_logo.png');
+    var texture = THREE.ImageUtils.loadTexture('../Content/textures/large_logo.png');
     texture.anisotropy = renderer.getMaxAnisotropy();
 
-    // var material = new THREE.MeshBasicMaterial({ map: texture });
-    var material = new THREE.MeshBasicMaterial({ color: 0xff005a });
+    var material = new THREE.MeshBasicMaterial({ map: texture });
+    //var material = new THREE.MeshBasicMaterial({ color: 0xff005a });
 
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);

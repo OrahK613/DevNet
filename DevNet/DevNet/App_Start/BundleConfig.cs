@@ -26,10 +26,9 @@ namespace DevNet
                       "~/Scripts/respond.js",
                       "~/Scripts/bootstrap-datepicker.js"));
 
-         
+
             bundles.Add(new ScriptBundle("~/bundles/three").Include(
-                     "~/Scripts/three.min.js",
-                     "~/Scripts/logo_cube.js"));
+                     "~/Scripts/three.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
