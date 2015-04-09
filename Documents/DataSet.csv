@@ -9,8 +9,8 @@ ProgrammerID ,date Of Birth,Favorite IDE,Software Specialty,Programming Language
 8,5/2/1987,Eclipse,Mobile Development,Java,Mobile
 9,9/25/1977,Eclipse,Desktop Development,Java,JVM
 10,3/2/1980,Qt Creator,Desktop Development ,C/C++,C/C++
-11,1/12/1975,Xamarin,Mobile Development,Objective-C,Dr. Dobb's Mobile
-12,8/5/1965,Intel Parallel Studio,Parallel Programming,Go,Dr. Dobb's Parallel
+11,1/12/1975,Xamarin,Mobile Development,Objective-C,Mobile
+12,8/5/1965,Intel Parallel Studio,Parallel Programming,Go,Parallel
 13,9/4/1997,IntelliJ,Mobile Development,Java,Mobile
 14,2/12/1986,Vim,Mobile Development,Ruby,Mobile
 15,3/11/1983,Xcode,Mobile Development,Lua,Mobile
