@@ -1,51 +1,76 @@
 ProgrammerID ,date Of Birth,Favorite IDE,Software Specialty,Programming Language,Recommended RSS Feed
-1,1/23/1979,Visual Studio,Web Development,C#,Dr. Dobb's Web Development
-2,9/15/1966,Visual Studio,Embedded Devices,C/C++,Dr. Dobb's Embedded Systems
-3,11/3/1987,Eclipse,Web Development,Java,Dr. Dobb's JVM
-4,12/12/1986,Xamarin,Mobile Development,Objective-C,Dr. Dobb's Mobile
-5,5/24/1964,Visual Studio,Desktop Development,VB.NET,Dr. Dobb's Windows/.NET
-6,9/10/1997,Qt Creator,Game Development,C/C++,Dr. Dobb's Open Source
-7,10/13/1999,Visual Studio,Game Development,C/C++,Dr. Dobb's C/C++
-8,5/2/1987,Eclipse,Mobile Development,Java,Dr. Dobb's Mobile
-9,9/25/1977,Eclipse,Desktop Development,Java,Dr. Dobb's JVM
-10,3/2/1980,Qt Creator,Desktop Development ,C/C++,Dr. Dobb's C/C++
+1,1/23/1979,Visual Studio,Web Development,C#,Web Development
+2,9/15/1966,Visual Studio,Embedded Devices,C/C++,Embedded Systems
+3,11/3/1987,Eclipse,Web Development,Java,JVM
+4,12/12/1986,Xamarin,Mobile Development,Objective-C,Mobile
+5,5/24/1964,Visual Studio,Desktop Development,VB.NET,Windows/.NET
+6,9/10/1997,Qt Creator,Game Development,C/C++,Open Source
+7,10/13/1999,Visual Studio,Game Development,C/C++,C/C++
+8,5/2/1987,Eclipse,Mobile Development,Java,Mobile
+9,9/25/1977,Eclipse,Desktop Development,Java,JVM
+10,3/2/1980,Qt Creator,Desktop Development ,C/C++,C/C++
 11,1/12/1975,Xamarin,Mobile Development,Objective-C,Dr. Dobb's Mobile
 12,8/5/1965,Intel Parallel Studio,Parallel Programming,Go,Dr. Dobb's Parallel
-13,9/4/1997,IntelliJ,Mobile Development,Java,Dr. Dobb's Mobile
-14,2/12/1986,Vim,Mobile Development,Ruby,Dr. Dobb's Mobile
-15,3/11/1983,Xcode,Mobile Development,Lua,Dr. Dobb's Mobile
-16,11/20/1992,Eclipse,Mobile Development,Scheme,Dr. Dobb's Mobile
-17,3/9/1988,Visual Studio,Mobile Development,C#,Dr. Dobb's Mobile
-18,2/9/1989,Unity,Game Development,C#,Dr. Dobb's Windows/.NET
-19,9/30/1980,FP Haskell Center,Parallel Programming,Haskell,Dr. Dobb's Parallel
-20,5/5/1986,Eclipse PTP,Parallel Programming,C/C++,Dr. Dobb's Parallel
-21,12/26/1970,Eclipse PTP,Parallel Programming ,Fortran,Dr. Dobb's Parallel
-22,12/3/1976,Visual Studio,Parallel Programming,F#,Dr. Dobb's Parallel
-23,11/7/1980,Vim,Game Development,Haskell,Dr. Dobb's Open Source
-24,1/8/1990,IntelliJ,Web Development,JavaScript,Dr. Dobb's Web Development
-25,2/9/1996,Nide,Game Development,JavaScript,Dr. Dobb's Open Source
-26,9/12/1986,Vim,Web Development,Ruby,Dr. Dobb's Web Development
-27,2/1/1967,Eclipse,Desktop Development,Java,Dr. Dobb's JVM
-28,11/19/1967,IntelliJ,Embedded Devices,Java,Dr. Dobb's Embedded Systems
-29,3/24/1987,Eclipse,Embedded Devices,C/C++,Dr. Dobb's Embedded Systems
-30,12/2/1988,Aptana,Web Development,Ruby,Dr. Dobb's Web Development
-31,5/11/1995,Aptana,Web Development,PHP,Dr. Dobb's Web Development
-32,9/11/1990,Emacs,Desktop Development,Ruby,Dr. Dobb's Open Source
-33,8/23/1967,Qt Creator,Desktop Development,C/C++,Dr. Dobb's C/C++
-34,12/30/1981,Vim,Desktop Development,Haskell,Dr. Dobb's Open Source
-35,9/1/1994,Eclipse,Desktop Development,Clojure,Dr. Dobb's JVM
-36,5/25/1972,Eclipse,Parallel Programming,Clojure,Dr. Dobb's Parallel
-37,3/30/1967,Eclipse,Web Development,Clojure,Dr. Dobb's Web Development
-38,4/12/1998,PhpStorm,Web Development,PHP,Dr. Dobb's Web Development
-39,9/10/1990,NetBeans,Web Development,PHP,Dr. Dobb's Web Development
-40,9/20/1983,NetBeans,Web Development ,Java,Dr. Dobb's Web Development
-41,3/11/1976,Sublime Text 2,Embedded Devices,Go,Dr. Dobb's Embedded Systems
-42,12/9/1978,IntelliJ,Embedded Devices,Go ,Dr. Dobb's Embedded Systems
-43,6/25/1994,Sublime Text 2,Desktop Development,Ruby,Dr. Dobb's Open Source
-44,5/4/1993,NetBeans,Web Development,Java,Dr. Dobb's JVM
-45,9/5/1975,Eclipse,Web Development,Java,Dr. Dobb's Web Development
-46,12/2/1982,Aptana,Game Development,Ruby,Dr. Dobb's Open Source
-47,8/3/1988,Visual Studio,Web Development,C#,Dr. Dobb's Web Development
-48,9/7/1986,Visual Studio,Desktop Development,C#,Dr. Dobb's Windows/.NET
-49,8/4/1976,Visual Studio,Desktop Development,VB.NET,Dr. Dobb's Windows/.NET
-50,9/2/1997,Unity,Game Development,C/C++,Dr. Dobb's C/C++
+13,9/4/1997,IntelliJ,Mobile Development,Java,Mobile
+14,2/12/1986,Vim,Mobile Development,Ruby,Mobile
+15,3/11/1983,Xcode,Mobile Development,Lua,Mobile
+16,11/20/1992,Eclipse,Mobile Development,Scheme,Mobile
+17,3/9/1988,Visual Studio,Mobile Development,C#,Mobile
+18,2/9/1989,Unity,Game Development,C#,Windows/.NET
+19,9/30/1980,FP Haskell Center,Parallel Programming,Haskell,Parallel
+20,5/5/1986,Eclipse PTP,Parallel Programming,C/C++,Parallel
+21,12/26/1970,Eclipse PTP,Parallel Programming ,Fortran,Parallel
+22,12/3/1976,Visual Studio,Parallel Programming,F#,Parallel
+23,11/7/1980,Vim,Game Development,Haskell,Open Source
+24,1/8/1990,IntelliJ,Web Development,JavaScript,Web Development
+25,2/9/1996,Nide,Game Development,JavaScript,Open Source
+26,9/12/1986,Vim,Web Development,Ruby,Web Development
+27,2/1/1967,Eclipse,Desktop Development,Java,JVM
+28,11/19/1967,IntelliJ,Embedded Devices,Java,Embedded Systems
+29,3/24/1987,Eclipse,Embedded Devices,C/C++,Embedded Systems
+30,12/2/1988,Aptana,Web Development,Ruby,Web Development
+31,5/11/1995,Aptana,Web Development,PHP,Web Development
+32,9/11/1990,Emacs,Desktop Development,Ruby,Open Source
+33,8/23/1967,Qt Creator,Desktop Development,C/C++,C/C++
+34,12/30/1981,Vim,Desktop Development,Haskell,Open Source
+35,9/1/1994,Eclipse,Desktop Development,Clojure,JVM
+36,5/25/1972,Eclipse,Parallel Programming,Clojure,Parallel
+37,3/30/1967,Eclipse,Web Development,Clojure,Web Development
+38,4/12/1998,PhpStorm,Web Development,PHP,Web Development
+39,9/10/1990,NetBeans,Web Development,PHP,Web Development
+40,9/20/1983,NetBeans,Web Development ,Java,Web Development
+41,3/11/1976,Sublime Text 2,Embedded Devices,Go,Embedded Systems
+42,12/9/1978,IntelliJ,Embedded Devices,Go ,Embedded Systems
+43,6/25/1994,Sublime Text 2,Desktop Development,Ruby,Open Source
+44,5/4/1993,NetBeans,Web Development,Java,JVM
+45,9/5/1975,Eclipse,Web Development,Java,Web Development
+46,12/2/1982,Aptana,Game Development,Ruby,Open Source
+47,8/3/1988,Visual Studio,Web Development,C#,Web Development
+48,9/7/1986,Visual Studio,Desktop Development,C#,Windows/.NET
+49,8/4/1976,Visual Studio,Desktop Development,VB.NET,Windows/.NET
+50,9/2/1997,Unity,Game Development,C/C++,C/C++
+51,10/12/1987,Qt Creator,Game Development,C/C++,C/C++
+52,9/4/1991,Emacs,Parallel Programming,Haskell,Parallel
+53,12/1/1987,Xamarin,Mobile Development,C#,Windows/.NET
+54,4/23/1980,Vim,Web Development,Ruby,Web Development
+55,3/30/1967,Eclipse PTP,Parallel Programming,Fortran,Parallel
+56,11/17/1988,InetelliJ,Mobile Development,Java,Mobile
+57,9/30/1975,Xcode,Game Development,Objective-C,Mobile
+58,12/4/1975,Xcode,Desktop Development,Java,JVM
+59,6/7/1978,Xcode,Web Development,Java,JVM
+60,7/23/1977,Aptana,Web Development,Java,JVM
+61,8/8/1977,Aptana,Desktop Development,Java,Open Source
+62,12/15/1956,MonoDevelop,Desktop Development,C#,Open Source
+63,4/4/1978,MonoDevelop,Web Development,C#,Windows/.NET
+64,12/17/1976,MonoDevelop,Web Development,VB.NET,Windows/.NET
+65,8/5/1965,MonoDevelop,Web Development,VB.NET,Web Development
+66,11/11/1988,MonoDevelop,Desktop Development,VB.NET,Windows/.NET
+67,3/13/1977,Visual Studio,Desktop Development,C#,Windows/.NET
+68,1/21/1991,Eclipse,Game Development,Clojure,JVM
+69,5/30/1976,Sublime Text 2,Web Development,Ruby,Open Source
+70,3/9/1980,NetBeans,Desktop Development,Java,JVM
+71,8/18/1983,Aptana,Web Development,PHP,Open Source
+72,10/27/1974,Qt Creator,Desktop Development,C/C++,C/C++
+73,12/3/1988,Vim,Desktop Development,C/C++,C/C++
+74,3/19/1978,Unity,Game Development,C/C++,C/C++
+75,12/30/1988,FP Haskell Center,Game Development,Haskell,Open Source
