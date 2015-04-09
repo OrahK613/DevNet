@@ -85,5 +85,7 @@ namespace DevNet.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DevNet.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
