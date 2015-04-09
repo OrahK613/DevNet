@@ -54,7 +54,7 @@ ProgrammerID ,date Of Birth,Favorite IDE,Software Specialty,Programming Language
 53,12/1/1987,Xamarin,Mobile Development,C#,Windows/.NET
 54,4/23/1980,Vim,Web Development,Ruby,Web Development
 55,3/30/1967,Eclipse PTP,Parallel Programming,Fortran,Parallel
-56,11/17/1988,InetelliJ,Mobile Development,Java,Mobile
+56,11/17/1988,IntelliJ,Mobile Development,Java,Mobile
 57,9/30/1975,Xcode,Game Development,Objective-C,Mobile
 58,12/4/1975,Xcode,Desktop Development,Java,JVM
 59,6/7/1978,Xcode,Web Development,Java,JVM

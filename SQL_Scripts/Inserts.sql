@@ -1,30 +1,9 @@
 USE [DevNet]
 GO
 
-/****** Object:  Table [dbo].[States]    Script Date: 4/5/2015 6:02:00 AM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[States](
-	[StateID] [int] IDENTITY(1,1) NOT NULL,
-	[StateName] [nvarchar](max) NULL,
-	[StateAbbreviation] [nvarchar](max) NULL,
- CONSTRAINT [PK_dbo.States] PRIMARY KEY CLUSTERED 
-(
-	[StateID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-
 -- --------------------------------------------------------------------------------
--- Add sample data
+-- Add Data
 -- --------------------------------------------------------------------------------
-USE [DevNet]
-GO
 
 -- States
 Set Identity_insert States On
@@ -88,3 +67,63 @@ INSERT INTO States ( StateID, StateName, StateAbbreviation ) VALUES ( 57, 'Palau
 INSERT INTO States ( StateID, StateName, StateAbbreviation ) VALUES ( 58, 'Puerto Rico', 'PR' )	
 INSERT INTO States ( StateID, StateName, StateAbbreviation ) VALUES ( 59, 'Virgin Islands', 'VI' )	
 Set Identity_insert States Off
+
+-- FavoriteIDEs
+Set Identity_insert FavoriteIDEs On
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 1, 'Eclipse' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 2, 'Visual Studio' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 3, 'Vim' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 4, 'Aptana' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 5, 'Qt Creator' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 6, 'MonoDevelop' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 7, 'IntelliJ' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 8, 'Xcode' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 9, 'NetBeans' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 10, 'Xamarin' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 11, 'Unity' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 12, 'Eclipse PTP' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 13, 'Sublime Text 2' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 14, 'FP Haskell Center' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 15, 'Emacs' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 16, 'Intel Parallel Studio' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 17, 'Nide' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 18, 'PhpStorm' )	
+INSERT INTO FavoriteIDEs ( FavoriteIDEID, FavoriteIDEName ) VALUES ( 19, 'InetlliJ' )	
+Set Identity_insert FavoriteIDEs Off
+
+-- ProgrammingLanguages
+Set Identity_insert ProgrammingLanguages On
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 1, 'Java' )
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 2, 'C/C++' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 3, 'C#' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 4, 'Ruby' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 5, 'VB.NET' )		
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 6, 'Haskell' )
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 7, 'PHP' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 8, 'Clojure' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 9, 'Objective-C' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 10, 'Go' )		
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 11, 'Fortran' )
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 12, 'JavaScript' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 13, 'Lua' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 14, 'Scheme' )	
+INSERT INTO ProgrammingLanguages ( ProgrammingLanguageID, ProgrammingLanguageName ) VALUES ( 15, 'F#' )		
+Set Identity_insert ProgrammingLanguages Off
+
+-- SoftwareSpecialties
+Set Identity_insert SoftwareSpecialties On
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 1, 'Web Development' )
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 2, 'Desktop Development' )
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 3, 'Game Development' )
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 4, 'Mobile Development' )
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 5, 'Parallel Programming' )
+INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 6, 'Embedded Devices' )
+Set Identity_insert SoftwareSpecialties Off
+
+
+GO
+
+SELECT * FROM States
+SELECT * FROM FavoriteIDEs
+SELECT * FROM ProgrammingLanguages
+SELECT * FROM SoftwareSpecialties
