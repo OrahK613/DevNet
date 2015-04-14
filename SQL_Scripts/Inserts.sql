@@ -120,6 +120,61 @@ INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) V
 INSERT INTO SoftwareSpecialties ( SoftwareSpecialtyID, SoftwareSpecialtyName ) VALUES ( 6, 'Embedded Devices' )
 Set Identity_insert SoftwareSpecialties Off
 
+-- User
+INSERT INTO [dbo].[AspNetUsers]
+           ([Id]
+           ,[FirstName]
+           ,[LastName]
+           ,[Address]
+           ,[City]
+           ,[StateID]
+           ,[DateOfBirth]
+           ,[FavoriteIDEID]
+           ,[SoftwareSpecialtyID]
+           ,[ProgrammingLanguageID]
+           ,[Email]
+           ,[EmailConfirmed]
+           ,[PasswordHash]
+           ,[SecurityStamp]
+           ,[PhoneNumber]
+           ,[PhoneNumberConfirmed]
+           ,[TwoFactorEnabled]
+           ,[LockoutEndDateUtc]
+           ,[LockoutEnabled]
+           ,[AccessFailedCount]
+           ,[UserName])
+     VALUES
+           (1
+           ,'Admin'
+           ,''
+           ,'123 SomeWhere'
+           ,'SomeCity'
+           ,1
+           ,'01/01/2015'
+           ,1
+           ,1
+           ,1
+           ,'admin@example.com'
+           ,1
+           ,null
+           ,null
+           ,null
+           ,0
+           ,0
+           ,null
+           ,0
+           ,0
+           ,'admin@example.com')
+
+
+-- Role
+INSERT INTO
+  [AspNetRoles] ([Id],[Name]) VALUES (1,'Admin')
+
+
+-- Assign Admin to User
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId]) VALUES ('efd336e1-495f-408a-a517-1800336220c1',1)
+
 
 GO
 
@@ -127,3 +182,7 @@ SELECT * FROM States
 SELECT * FROM FavoriteIDEs
 SELECT * FROM ProgrammingLanguages
 SELECT * FROM SoftwareSpecialties
+
+SELECT * FROM [dbo].[AspNetUsers]
+SELECT * FROM [dbo].[AspNetRoles]
+SELECT * FROM [dbo].[AspNetUserRoles]

@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ServiceModel.Syndication;
+using System.Collections.Generic;
 
 namespace DevNet.Models
 {
@@ -23,6 +25,9 @@ namespace DevNet.Models
         public Int32 FavoriteIDEID { get; set; } 
         public Int32 SoftwareSpecialtyID { get; set; } 
         public Int32 ProgrammingLanguageID { get; set; }
+        public String RssFeedName { get; set; }
+
+       
 
         public virtual State State { get; set; }
         public virtual FavoriteIDE FavoriteIDE { get; set; }
@@ -62,12 +67,12 @@ namespace DevNet.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public System.Data.Entity.DbSet<State> States { get; set; }
+        public System.Data.Entity.DbSet<FavoriteIDE> FavoriteIDEs { get; set; }
+        public System.Data.Entity.DbSet<SoftwareSpecialty> SoftwareSpecialties { get; set; }
+        public System.Data.Entity.DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
        
-        
-        public DbSet<State> States { get; set; }
-        public DbSet<FavoriteIDE> FavoriteIDEs { get; set; }
-        public DbSet<SoftwareSpecialty> SoftwareSpecialties { get; set; }
-        public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -86,6 +91,6 @@ namespace DevNet.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<DevNet.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //public System.Data.Entity.DbSet<DevNet.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

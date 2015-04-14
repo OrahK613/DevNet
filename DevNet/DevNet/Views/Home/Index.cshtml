@@ -1,6 +1,45 @@
-﻿@{
+﻿@using DevNet.Models;
+
+
+@model IEnumerable<DevNet.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
- }
+
+    if (Request.IsAuthenticated)
+    {
+        string strRecommendedRSSFeedName = "";
+
+        if (Model != null)
+        {
+
+            foreach (var item in Model)
+            {
+
+                if (item.UserName == User.Identity.GetUserName())
+                {
+                    strRecommendedRSSFeedName = item.RssFeedName;
+
+                    if(strRecommendedRSSFeedName != null)
+                    {
+                        RSSFeedModel rssFeed = new RSSFeedModel();
+                        RSSFeedModel.RssFeed = rssFeed.GetRSSFeed(strRecommendedRSSFeedName);
+                        RSSFeedModel.RssFeedName = strRecommendedRSSFeedName;
+                    }
+                   
+                }
+
+            }
+        }
+    }
+    else
+    {
+        RSSFeedModel rssFeed = new RSSFeedModel();
+        RSSFeedModel.RssFeed = null;
+        RSSFeedModel.RssFeedName = "";
+    }
+
+}
 
 <style>
 
@@ -10,18 +49,40 @@
     }
     .darkscreen
     {
-         color: #544444;
+         color: #999;
          padding: 25px;
-         background-color: rgba(255,255,255,.5);
-         border-radius: 30px;
-         border: 2px solid #FFFFFF;
-         box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(255, 255, 255, 0.6);
+         background-color: rgba(21,36,57,.5);
+         /*border-radius: 30px;*/
+         border: 2px solid rgba(31, 46, 67, 1);
+         box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(21, 36, 57, 0.6);
          position: relative;
-         top: 25px;
-         left: 105px;
+         /*top: 25px;
+         left: 105px;*/
          height: 300px;
          width: 400px;
          z-index: 200;
+         left: 80px;
+         float: right;
+    }
+
+    .float
+    {
+       
+        width: 400px;
+        height: 100%;
+ 
+        color: #999;
+         padding: 25px;
+         background-color: rgba(0,0,0,.5);
+         /*border-radius: 30px;*/
+         border: 2px solid rgba(31, 46, 67, 1);
+         box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(21, 36, 57, 0.6);
+         position: relative;
+         z-index: 200;
+         /*top: -200px;*/
+         /*left: -300px;*/
+         font-size: 10pt;
+
     }
    
 
@@ -37,18 +98,24 @@
 
 
         </div>
-    </div>
+        @if (RSSFeedModel.RssFeed != null)
+        {
+            <div class="row float">
+                @*<div class="col-md-4">*@
+                    <h2>@RSSFeedModel.RssFeedName RSS Feed</h2>
+                    <ul>
+                        @foreach (System.ServiceModel.Syndication.SyndicationItem feed in (List<System.ServiceModel.Syndication.SyndicationItem>)RSSFeedModel.RssFeed)
+                        {
+                            <li><a href="@feed.Id" target="_blank">@feed.Title.Text </a></li>
+                        }
+                    </ul>
+                @*</div>*@
 
-    @*<div class="row">
-            <div class="col-md-4">
-                <h2>ASP.NET RSS Feed</h2>
-                <ul>
-                    <li>Learn about the latest in ASP.NET Web API 2</li>
-                    <li>Build realtime web applications with SignalR.</li>
-                    <li>Deploy a Mobile-Friendly ASP.NET MVC 5 Web Application on Windows Azure Web Sites</li>
-                    <li>Develop iPhone applications with ASP.NET</li>
-                </ul>
             </div>
+        }
+    </div>
+    
+   
 
-        </div>*@
+
 @*</div>*@

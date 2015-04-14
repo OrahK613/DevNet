@@ -128,28 +128,32 @@ namespace DevNet.Models
         [Display(Name = "Programming Language")]
         public Int32 ProgrammingLanguageID { get; set; }
 
+      
         public List<System.Web.Mvc.SelectListItem> StateList
         {
             get
             {
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
+
                     System.Data.Entity.DbSet<State> States = db.States;
-                    List<System.Web.Mvc.SelectListItem>  lstStates = new List<System.Web.Mvc.SelectListItem>();
+                    List<System.Web.Mvc.SelectListItem> lstSelectedStates = new List<System.Web.Mvc.SelectListItem>();
 
                     foreach (DevNet.Models.State state in States)
                     {
-                        lstStates.Add(new System.Web.Mvc.SelectListItem
+                        lstSelectedStates.Add(new System.Web.Mvc.SelectListItem
                         {
                             Selected = (state.StateID == 1),
                             Text = state.StateName + "(" + state.StateAbbreviation + ")",
                             Value = state.StateID.ToString()
                         });
                     }
-                    return lstStates;
+
+                  
+                    return lstSelectedStates;
                 }
 
-                
+
             }
             set
             { ; }
@@ -174,6 +178,7 @@ namespace DevNet.Models
                             Value = favoriteIDE.FavoriteIDEID.ToString()
                         });
                     }
+
                     return lstFavoriteIDEs;
                 }
 
@@ -201,6 +206,8 @@ namespace DevNet.Models
                             Value = softwareSpecialty.SoftwareSpecialtyID.ToString()
                         });
                     }
+
+                
                     return lstSoftwareSpecialties;
                 }
 
@@ -228,6 +235,7 @@ namespace DevNet.Models
                             Value = programmingLanguage.ProgrammingLanguageID.ToString()
                         });
                     }
+
                     return lstProgrammingLanguages;
                 }
 

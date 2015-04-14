@@ -40,7 +40,7 @@ html {
      font-size: 14pt;*/
     background-color: #000;
     
-    background-image: url(textures/deep-red-fractal.png);
+    background-image: url(textures/background.png);
     z-index: 50;
     background-attachment: fixed;
 }
@@ -55,7 +55,7 @@ body {
     background-color: #000;
     color: #ff005a;
    
-    background-image: url(textures/deep-red-fractal.png);
+    background-image: url(textures/background.png);
     z-index: 50;
     background-attachment: fixed;
 }
@@ -101,6 +101,7 @@ jumbotron {
   color: inherit;
   background-color: #eeeeee;  
   background-image: url(logos/full_logo.png);
+  
   height: 800px;
   z-index: 100;
 }
