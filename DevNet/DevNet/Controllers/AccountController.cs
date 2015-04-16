@@ -174,6 +174,9 @@ namespace DevNet.Controllers
 
                 string strRecommendedRSSFeed = RecommendedRSSFeed["Results"]["Recommended RSS Feed"]["value"]["Values"][0][12].ToString();
 
+               
+
+
                // RSSFeedModel rssFeed = new RSSFeedModel();
 
                // RSSFeedModel.RssFeed = rssFeed.GetRSSFeed(strRecommendedRSSFeed);
