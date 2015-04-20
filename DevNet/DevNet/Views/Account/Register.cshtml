@@ -1,11 +1,6 @@
 ﻿@model DevNet.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
-     
-    var lstStates = ViewData["States"] as List<SelectListItem>;
-    var lstFavoriteIDEs = ViewData["FavoriteIDEs"] as List<SelectListItem>;
-    var lstSoftwareSpecialties = ViewData["SoftwareSpecialties"] as List<SelectListItem>;
-    var lstProgrammingLanguages = ViewData["ProgrammingLanguages"] as List<SelectListItem>;
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -62,10 +57,11 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StateID, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.StateList, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-             @Html.DropDownListFor(m => m.StateID, lstStates, new { @class = "form-control" })
-        </div>
+            @Html.DropDownListFor(m => m.SelectedStateID, new SelectList(Model.StateList, "Value", "Text"), "--- Please Select Your State ---", new { @class = "form-control" })
+            @*@Html.ValidationMessageFor(m => m.StateList)*@
+         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
@@ -74,21 +70,21 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.FavoriteIDEID, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.FavoriteIDEList, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.FavoriteIDEID, lstFavoriteIDEs, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.SelectedIDEID, new SelectList(Model.FavoriteIDEList, "Value", "Text"), "--- Please Select Your IDE ---", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.SoftwareSpecialtyID, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.SoftwareSpecialtyList, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.SoftwareSpecialtyID, lstSoftwareSpecialties, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.SelectedSoftwareSpecialtyID, new SelectList(Model.SoftwareSpecialtyList, "Value", "Text"), "--- Please Select Your Software Specialty ---", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ProgrammingLanguageID, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.ProgrammingLanguageList, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.ProgrammingLanguageID, lstProgrammingLanguages, new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.SelectedProgrammingLanguageID, new SelectList(Model.ProgrammingLanguageList, "Value", "Text"), "--- Please Select Your Programming Language ---", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">

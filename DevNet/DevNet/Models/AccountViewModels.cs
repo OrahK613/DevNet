@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System;
 using System.Web.WebPages.Html;
 using System.Data.Entity;
+using System.Linq;
 
 
 namespace DevNet.Models
@@ -128,136 +129,26 @@ namespace DevNet.Models
         [Display(Name = "Programming Language")]
         public Int32 ProgrammingLanguageID { get; set; }
 
-      
-        public List<System.Web.Mvc.SelectListItem> StateList
-        {
-            get
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
+        [Required]
+        [Display(Name = "Select Your State")]
+        public int SelectedStateID { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> StateList { get; set; }
 
-                    System.Data.Entity.DbSet<State> States = db.States;
-                    List<System.Web.Mvc.SelectListItem> lstSelectedStates = new List<System.Web.Mvc.SelectListItem>();
+        [Required]
+        [Display(Name = "Select Your Favorite IDE")]
+        public int SelectedIDEID { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> FavoriteIDEList { get; set; }
 
-                    foreach (DevNet.Models.State state in States)
-                    {
-                        lstSelectedStates.Add(new System.Web.Mvc.SelectListItem
-                        {
-                            Selected = (state.StateID == 1),
-                            Text = state.StateName + "(" + state.StateAbbreviation + ")",
-                            Value = state.StateID.ToString()
-                        });
-                    }
+        [Required]
+        [Display(Name = "Select Your Software Specialty")]
+        public int SelectedSoftwareSpecialtyID { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> SoftwareSpecialtyList { get; set; }
 
-                  
-                    return lstSelectedStates;
-                }
-
-
-            }
-            set
-            { ; }
-        }
-
-
-        public List<System.Web.Mvc.SelectListItem> FavoriteIDEList
-        {
-            get
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    System.Data.Entity.DbSet<FavoriteIDE> FavoriteIDEs = db.FavoriteIDEs;
-                    List<System.Web.Mvc.SelectListItem> lstFavoriteIDEs = new List<System.Web.Mvc.SelectListItem>();
-
-                    foreach (DevNet.Models.FavoriteIDE favoriteIDE in FavoriteIDEs)
-                    {
-                        lstFavoriteIDEs.Add(new System.Web.Mvc.SelectListItem
-                        {
-                            Selected = (favoriteIDE.FavoriteIDEID == 1),
-                            Text = favoriteIDE.FavoriteIDEName,
-                            Value = favoriteIDE.FavoriteIDEID.ToString()
-                        });
-                    }
-
-                    return lstFavoriteIDEs;
-                }
-
-
-            }
-            set
-            { ; }
-        }
-
-        public List<System.Web.Mvc.SelectListItem> SoftwareSpecialtyList
-        {
-            get
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    System.Data.Entity.DbSet<SoftwareSpecialty> SoftwareSpecialties = db.SoftwareSpecialties;
-                    List<System.Web.Mvc.SelectListItem> lstSoftwareSpecialties = new List<System.Web.Mvc.SelectListItem>();
-
-                    foreach (DevNet.Models.SoftwareSpecialty softwareSpecialty in SoftwareSpecialties)
-                    {
-                        lstSoftwareSpecialties.Add(new System.Web.Mvc.SelectListItem
-                        {
-                            Selected = (softwareSpecialty.SoftwareSpecialtyID == 1),
-                            Text = softwareSpecialty.SoftwareSpecialtyName,
-                            Value = softwareSpecialty.SoftwareSpecialtyID.ToString()
-                        });
-                    }
-
-                
-                    return lstSoftwareSpecialties;
-                }
-
-
-            }
-            set
-            { ; }
-        }
-
-        public List<System.Web.Mvc.SelectListItem> ProgrammingLanguageList
-        {
-            get
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    System.Data.Entity.DbSet<ProgrammingLanguage> ProgrammingLanguages = db.ProgrammingLanguages;
-                    List<System.Web.Mvc.SelectListItem> lstProgrammingLanguages = new List<System.Web.Mvc.SelectListItem>();
-
-                    foreach (DevNet.Models.ProgrammingLanguage programmingLanguage in ProgrammingLanguages)
-                    {
-                        lstProgrammingLanguages.Add(new System.Web.Mvc.SelectListItem
-                        {
-                            Selected = (programmingLanguage.ProgrammingLanguageID == 1),
-                            Text = programmingLanguage.ProgrammingLanguageName,
-                            Value = programmingLanguage.ProgrammingLanguageID.ToString()
-                        });
-                    }
-
-                    return lstProgrammingLanguages;
-                }
-
-
-            }
-            set
-            { ; }
-        }
-
-        //public static IEnumerable<SelectListItem> ToSelectListItems(
-        //      this IEnumerable<State> states, int selectedId)
-        //{
-        //    return
-        //        states.OrderBy(state => state.StateName)
-        //              .Select(state =>
-        //                  new SelectListItem
-        //                  {
-        //                      Selected = (state.StateID == selectedId),
-        //                      Text = state.StateName + "(" + state.StateAbbreviation + ")",
-        //                      Value = state.StateID.ToString()
-        //                  });
-        //}
+        [Required]
+        [Display(Name = "Select Your Favorite Programming Language")]
+        public int SelectedProgrammingLanguageID { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> ProgrammingLanguageList { get; set; }
+       
 
     }
 

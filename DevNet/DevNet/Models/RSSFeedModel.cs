@@ -47,10 +47,17 @@ namespace DevNet.Models
                     Console.WriteLine("Invalid RSS Feed.");
                     break;
             }
+            if(url != "")
+            {
+                lastNews.AddRange(this.GetItemsFromUrl(url));
 
-            lastNews.AddRange(this.GetItemsFromUrl(url));
-
-            lastNews.Sort(delegate(SyndicationItem x, SyndicationItem y) { return y.PublishDate.CompareTo(x.PublishDate); });
+                lastNews.Sort(delegate(SyndicationItem x, SyndicationItem y) { return y.PublishDate.CompareTo(x.PublishDate); });
+            }
+            else 
+            {
+                lastNews = null;
+            }
+           
 
             return lastNews;
         }

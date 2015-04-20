@@ -21,11 +21,13 @@ namespace DevNet.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
+
+        public AccountController() 
+        {  
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+       
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -42,6 +44,7 @@ namespace DevNet.Controllers
                 _signInManager = value; 
             }
         }
+
 
         public ApplicationUserManager UserManager
         {
@@ -148,12 +151,95 @@ namespace DevNet.Controllers
         public ActionResult Register()
         {
             RegisterViewModel model = new RegisterViewModel();
-            
-            ViewData["States"] = model.StateList;
-            ViewData["FavoriteIDEs"] = model.FavoriteIDEList;
-            ViewData["SoftwareSpecialties"] = model.SoftwareSpecialtyList;
-            ViewData["ProgrammingLanguages"] = model.ProgrammingLanguageList;
-            return View();
+
+            model.BirthDate = DateTime.Now;
+
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+
+                // States
+                IEnumerable<State> TStates = db.States;
+                IList<State> lstStates = new List<State>();
+
+                foreach (State state in TStates)
+                {
+                    lstStates.Add(state);
+                }
+                IEnumerable<SelectListItem> lstSelectedStates =
+                     from state in lstStates
+                     select new SelectListItem
+                     {
+                         Selected = false,
+                         Text = state.StateName + "(" + state.StateAbbreviation + ")",
+                         Value = state.StateID.ToString()
+                     }; 
+
+                // IDEs
+                IEnumerable<FavoriteIDE> TFavoriteIDEs = db.FavoriteIDEs;
+                IList<FavoriteIDE> FavoriteIDEs = new List<FavoriteIDE>();
+
+                foreach (FavoriteIDE ide in TFavoriteIDEs)
+                {
+                    FavoriteIDEs.Add(ide);
+                }
+
+                IEnumerable<SelectListItem> lstSelectedFavoriteIDEs =
+                     from ide in FavoriteIDEs
+                     select new SelectListItem
+                     {
+                         Selected = false,
+                         Text = ide.FavoriteIDEName,
+                         Value = ide.FavoriteIDEID.ToString()
+                     };
+
+
+                // Software Specialties
+                IEnumerable<SoftwareSpecialty> TSoftwareSpecialties = db.SoftwareSpecialties;
+                IList<SoftwareSpecialty> SoftwareSpecialties = new List<SoftwareSpecialty>();
+
+                foreach (SoftwareSpecialty ss in TSoftwareSpecialties)
+                {
+                    SoftwareSpecialties.Add(ss);
+                }
+
+                IEnumerable<SelectListItem> lstSelectedSoftwareSpecialties =
+                     from ss in SoftwareSpecialties
+                     select new SelectListItem
+                     {
+                         Selected = false,
+                         Text = ss.SoftwareSpecialtyName,
+                         Value = ss.SoftwareSpecialtyID.ToString()
+                     };
+
+                // Programming Languages
+                IEnumerable<ProgrammingLanguage> TProgrammingLanguages = db.ProgrammingLanguages;
+                IList<ProgrammingLanguage> ProgrammingLanguages = new List<ProgrammingLanguage>();
+
+                foreach (ProgrammingLanguage pl in TProgrammingLanguages)
+                {
+                    ProgrammingLanguages.Add(pl);
+                }
+
+                IEnumerable<SelectListItem> lstSelectedProgrammingLanguages =
+                     from pl in ProgrammingLanguages
+                     select new SelectListItem
+                     {
+                         Selected = false,
+                         Text = pl.ProgrammingLanguageName,
+                         Value = pl.ProgrammingLanguageID.ToString()
+                     };
+
+                model.SelectedStateID = -1;
+                model.SelectedIDEID = -1;
+                model.SelectedSoftwareSpecialtyID = -1;
+                model.SelectedProgrammingLanguageID = -1;
+
+                model.StateList = lstSelectedStates;
+                model.FavoriteIDEList = lstSelectedFavoriteIDEs;
+                model.SoftwareSpecialtyList = lstSelectedSoftwareSpecialties;
+                model.ProgrammingLanguageList = lstSelectedProgrammingLanguages;
+            }
+            return View(model);
         }
 
         //
@@ -163,25 +249,22 @@ namespace DevNet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-          
+
             if (ModelState.IsValid)
             {
+                // Call Web Servic to get recommended RSS Feed Info
                 InvokeRequestResponseService(model).Wait();
 
+                // Get the JObject 
                 Newtonsoft.Json.Linq.JObject RecommendedRSSFeed = new Newtonsoft.Json.Linq.JObject();
 
+                // Get the actual feeds
                 RecommendedRSSFeed = DevNetAnalyticsViewModel.RSSFeed;
 
+                // Get the feed name
                 string strRecommendedRSSFeed = RecommendedRSSFeed["Results"]["Recommended RSS Feed"]["value"]["Values"][0][12].ToString();
 
-               
-
-
-               // RSSFeedModel rssFeed = new RSSFeedModel();
-
-               // RSSFeedModel.RssFeed = rssFeed.GetRSSFeed(strRecommendedRSSFeed);
-               // RSSFeedModel.RssFeedName = strRecommendedRSSFeed;
-                
+            
                 var user = new ApplicationUser 
                 {   
                     UserName = model.Email, 
@@ -190,16 +273,17 @@ namespace DevNet.Controllers
                     LastName = model.LastName,
                     Address = model.Address,
                     City = model.City,
-                    StateID = model.StateID,
+                    StateID = model.SelectedStateID,
                     DateOfBirth = model.BirthDate,
-                    FavoriteIDEID = model.FavoriteIDEID,
-                    SoftwareSpecialtyID = model.SoftwareSpecialtyID,
-                    ProgrammingLanguageID = model.ProgrammingLanguageID,
-                    RssFeedName = strRecommendedRSSFeed
+                    FavoriteIDEID = model.SelectedIDEID,
+                    SoftwareSpecialtyID = model.SelectedSoftwareSpecialtyID,
+                    ProgrammingLanguageID = model.SelectedProgrammingLanguageID,
+                    RssFeedName = strRecommendedRSSFeed 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (result.Succeeded) // Successful Registration
                 {
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -210,9 +294,175 @@ namespace DevNet.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                else // Failed Registration
+                {
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        // States
+                        IEnumerable<State> TStates = db.States;
+                        IList<State> lstStates = new List<State>();
+
+                        foreach (State state in TStates)
+                        {
+                            lstStates.Add(state);
+                        }
+                        IEnumerable<SelectListItem> lstSelectedStates =
+                             from state in lstStates
+                             select new SelectListItem
+                             {
+                                 Selected = false,
+                                 Text = state.StateName + "(" + state.StateAbbreviation + ")",
+                                 Value = state.StateID.ToString()
+                             };
+
+                        // IDEs
+                        IEnumerable<FavoriteIDE> TFavoriteIDEs = db.FavoriteIDEs;
+                        IList<FavoriteIDE> FavoriteIDEs = new List<FavoriteIDE>();
+
+                        foreach (FavoriteIDE ide in TFavoriteIDEs)
+                        {
+                            FavoriteIDEs.Add(ide);
+                        }
+
+                        IEnumerable<SelectListItem> lstSelectedFavoriteIDEs =
+                             from ide in FavoriteIDEs
+                             select new SelectListItem
+                             {
+                                 Selected = false,
+                                 Text = ide.FavoriteIDEName,
+                                 Value = ide.FavoriteIDEID.ToString()
+                             };
+
+
+                        // Software Specialties
+                        IEnumerable<SoftwareSpecialty> TSoftwareSpecialties = db.SoftwareSpecialties;
+                        IList<SoftwareSpecialty> SoftwareSpecialties = new List<SoftwareSpecialty>();
+
+                        foreach (SoftwareSpecialty ss in TSoftwareSpecialties)
+                        {
+                            SoftwareSpecialties.Add(ss);
+                        }
+
+                        IEnumerable<SelectListItem> lstSelectedSoftwareSpecialties =
+                             from ss in SoftwareSpecialties
+                             select new SelectListItem
+                             {
+                                 Selected = false,
+                                 Text = ss.SoftwareSpecialtyName,
+                                 Value = ss.SoftwareSpecialtyID.ToString()
+                             };
+
+                        // Programming Languages
+                        IEnumerable<ProgrammingLanguage> TProgrammingLanguages = db.ProgrammingLanguages;
+                        IList<ProgrammingLanguage> ProgrammingLanguages = new List<ProgrammingLanguage>();
+
+                        foreach (ProgrammingLanguage pl in TProgrammingLanguages)
+                        {
+                            ProgrammingLanguages.Add(pl);
+                        }
+
+                        IEnumerable<SelectListItem> lstSelectedProgrammingLanguages =
+                             from pl in ProgrammingLanguages
+                             select new SelectListItem
+                             {
+                                 Selected = false,
+                                 Text = pl.ProgrammingLanguageName,
+                                 Value = pl.ProgrammingLanguageID.ToString()
+                             };
+
+
+                        model.StateList = lstSelectedStates;
+                        model.FavoriteIDEList = lstSelectedFavoriteIDEs;
+                        model.SoftwareSpecialtyList = lstSelectedSoftwareSpecialties;
+                        model.ProgrammingLanguageList = lstSelectedProgrammingLanguages;
+                    }
+                }
                 AddErrors(result);
             }
+            else
+            {
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
 
+                    // States
+                    IEnumerable<State> TStates = db.States;
+                    IList<State> lstStates = new List<State>();
+
+                    foreach (State state in TStates)
+                    {
+                        lstStates.Add(state);
+                    }
+                    IEnumerable<SelectListItem> lstSelectedStates =
+                         from state in lstStates
+                         select new SelectListItem
+                         {
+                             Selected = (model.StateID == model.SelectedStateID),
+                             Text = state.StateName + "(" + state.StateAbbreviation + ")",
+                             Value = state.StateID.ToString()
+                         };
+
+                    // IDEs
+                    IEnumerable<FavoriteIDE> TFavoriteIDEs = db.FavoriteIDEs;
+                    IList<FavoriteIDE> FavoriteIDEs = new List<FavoriteIDE>();
+
+                    foreach (FavoriteIDE ide in TFavoriteIDEs)
+                    {
+                        FavoriteIDEs.Add(ide);
+                    }
+
+                    IEnumerable<SelectListItem> lstSelectedFavorieIDEs =
+                         from ide in FavoriteIDEs
+                         select new SelectListItem
+                         {
+                             Selected = (ide.FavoriteIDEID == model.FavoriteIDEID),
+                             Text = ide.FavoriteIDEName,
+                             Value = ide.FavoriteIDEID.ToString()
+                         };
+
+                    // Software Specialties
+                    IEnumerable<SoftwareSpecialty> TSoftwareSpecialties = db.SoftwareSpecialties;
+                    IList<SoftwareSpecialty> SoftwareSpecialties = new List<SoftwareSpecialty>();
+
+                    foreach (SoftwareSpecialty ss in TSoftwareSpecialties)
+                    {
+                        SoftwareSpecialties.Add(ss);
+                    }
+
+                    IEnumerable<SelectListItem> lstSelectedSoftwareSpecialties =
+                         from ss in SoftwareSpecialties
+                         select new SelectListItem
+                         {
+                             Selected = (ss.SoftwareSpecialtyID == model.SoftwareSpecialtyID),
+                             Text = ss.SoftwareSpecialtyName,
+                             Value = ss.SoftwareSpecialtyID.ToString()
+                         };
+
+                    // Programming Languages
+                    IEnumerable<ProgrammingLanguage> TProgrammingLanguages = db.ProgrammingLanguages;
+                    IList<ProgrammingLanguage> ProgrammingLanguages = new List<ProgrammingLanguage>();
+
+                    foreach (ProgrammingLanguage pl in TProgrammingLanguages)
+                    {
+                        ProgrammingLanguages.Add(pl);
+                    }
+
+                    IEnumerable<SelectListItem> lstSelectedProgrammingLanguages =
+                         from pl in ProgrammingLanguages
+                         select new SelectListItem
+                         {
+                             Selected = (pl.ProgrammingLanguageID == model.ProgrammingLanguageID),
+                             Text = pl.ProgrammingLanguageName,
+                             Value = pl.ProgrammingLanguageID.ToString()
+                         };
+
+                    model.StateList = lstSelectedStates;
+                    model.FavoriteIDEList = lstSelectedFavorieIDEs;
+                    model.SoftwareSpecialtyList = lstSelectedSoftwareSpecialties;
+                    model.ProgrammingLanguageList = lstSelectedProgrammingLanguages;
+
+                }
+            }
+           
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -471,38 +721,98 @@ namespace DevNet.Controllers
         [AllowAnonymous]
         static async Task InvokeRequestResponseService(RegisterViewModel model)
         {
+
             string strIDE = "";
-            
-            foreach(SelectListItem item in model.FavoriteIDEList)
-            {
-                if(item.Value == model.FavoriteIDEID.ToString())
-                {
-                    strIDE = item.Text;
-                    break;
-                }
-            }
-            
             string strSoftwareSpecialty = "";
-            
-            foreach(SelectListItem item in model.SoftwareSpecialtyList)
+            string strProgrammingLanguage = "";
+
+            using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                if(item.Value == model.SoftwareSpecialtyID.ToString())
+                // IDEs
+                IEnumerable<FavoriteIDE> TFavoriteIDEs = db.FavoriteIDEs;
+                IList<FavoriteIDE> FavoriteIDEs = new List<FavoriteIDE>();
+
+                foreach (FavoriteIDE ide in TFavoriteIDEs)
                 {
-                    strSoftwareSpecialty = item.Text;
-                    break;
+                    FavoriteIDEs.Add(ide);
                 }
+
+                IEnumerable<SelectListItem> lstSelectedFavorieIDEs =
+                     from ide in FavoriteIDEs
+                     select new SelectListItem
+                     {
+                         Selected = (ide.FavoriteIDEID == model.FavoriteIDEID),
+                         Text = ide.FavoriteIDEName,
+                         Value = ide.FavoriteIDEID.ToString()
+                     };
+
+                foreach (SelectListItem item in lstSelectedFavorieIDEs)
+                {
+                    if(item.Value == model.FavoriteIDEID.ToString())
+                    {
+                        strIDE = item.Text;
+                        break;
+                    }
+                }
+            
+           
+                // Software Specialties
+                IEnumerable<SoftwareSpecialty> TSoftwareSpecialties = db.SoftwareSpecialties;
+                IList<SoftwareSpecialty> SoftwareSpecialties = new List<SoftwareSpecialty>();
+
+                foreach (SoftwareSpecialty ss in TSoftwareSpecialties)
+                {
+                    SoftwareSpecialties.Add(ss);
+                }
+
+                IEnumerable<SelectListItem> lstSelectedSoftwareSpecialties =
+                     from ss in SoftwareSpecialties
+                     select new SelectListItem
+                     {
+                         Selected = (ss.SoftwareSpecialtyID == model.SoftwareSpecialtyID),
+                         Text = ss.SoftwareSpecialtyName,
+                         Value = ss.SoftwareSpecialtyID.ToString()
+                     };
+
+                foreach (SelectListItem item in lstSelectedSoftwareSpecialties)
+                {
+                    if (item.Value == model.SoftwareSpecialtyID.ToString())
+                    {
+                        strSoftwareSpecialty = item.Text;
+                        break;
+                    }
+                }
+
+                // Programming Languages
+                IEnumerable<ProgrammingLanguage> TProgrammingLanguages = db.ProgrammingLanguages;
+                IList<ProgrammingLanguage> ProgrammingLanguages = new List<ProgrammingLanguage>();
+
+                foreach (ProgrammingLanguage pl in TProgrammingLanguages)
+                {
+                    ProgrammingLanguages.Add(pl);
+                }
+
+                IEnumerable<SelectListItem> lstSelectedProgrammingLanguages =
+                     from pl in ProgrammingLanguages
+                     select new SelectListItem
+                     {
+                         Selected = (pl.ProgrammingLanguageID == model.ProgrammingLanguageID),
+                         Text = pl.ProgrammingLanguageName,
+                         Value = pl.ProgrammingLanguageID.ToString()
+                     };
+
+                foreach (SelectListItem item in lstSelectedProgrammingLanguages)
+                {
+                    if (item.Value == model.ProgrammingLanguageID.ToString())
+                    {
+                        strProgrammingLanguage = item.Text;
+                        break;
+                    }
+                }
+
             }
 
-            string strProgrammingLanguage = "";
-            
-            foreach(SelectListItem item in model.ProgrammingLanguageList)
-            {
-                if(item.Value == model.ProgrammingLanguageID.ToString())
-                {
-                    strProgrammingLanguage = item.Text;
-                    break;
-                }
-            }
+
 
             using (var client = new HttpClient())
             {

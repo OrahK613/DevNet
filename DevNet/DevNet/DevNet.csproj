@@ -241,6 +241,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CustomPasswordValidator.cs" />
     <Compile Include="Migrations\201504140304502_InitialCreate.cs" />
     <Compile Include="Migrations\201504140304502_InitialCreate.Designer.cs">
       <DependentUpon>201504140304502_InitialCreate.cs</DependentUpon>
