@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace DevNet.Controllers
 {
@@ -20,10 +21,22 @@ namespace DevNet.Controllers
         //[AllowAnonymous]
         //public async Task<ActionResult> Dashboard()
       
-        public ActionResult Dashboard()
+        public ActionResult Dashboard(string sortOrder, int? page)
         {
             DashboardViewModel model = new DashboardViewModel();
             
+            // sorting
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.IDESortParam = String.IsNullOrEmpty(sortOrder) ? "ide_desc" : "";
+            ViewBag.SoftwareSortParam = String.IsNullOrEmpty(sortOrder) ? "software_desc" : "";
+            ViewBag.ProgrammingSortParam = String.IsNullOrEmpty(sortOrder) ? "prog_desc" : "";
+            ViewBag.RssSortParam = String.IsNullOrEmpty(sortOrder) ? "rss_desc" : "";
+
+            // paging
+            ViewBag.CurrentSort = sortOrder; // This is to maintain sorting from page to page
+
+
+              
             // Call Web Servic to get recommended RSS Feed Info
             InvokeRequestResponseService().Wait();
 
@@ -35,18 +48,61 @@ namespace DevNet.Controllers
            
             List<IList<string>> lstData = new List<IList<string>>();
 
+            // Convert JObject into a list of list objects
             foreach (JArray record in joHistoricData["Results"]["Dev Net Historic Data"]["value"]["Values"])
             {
                 IList<string> lstRecord = record.Select(v => (string)v).ToList();
                 lstData.Add(lstRecord);
        
             }
-         
+
+            // Convert the list objects in instances of ApplicationUser 
+            List<Dashboard> lstDashboard = new List<Dashboard>();
+            
+            foreach(IList<string> list in lstData)
+            {
+                Dashboard item = new Dashboard();
+                item.DateOfBirth = Convert.ToDateTime(list[0]);
+                item.FavoriteIDEName = list[1];
+                item.SoftwareSpecialtyName = list[2];
+                item.ProgrammingLanguageName = list[3];
+                item.PreferredRSSFeed = list[4];
+
+                lstDashboard.Add(item);
+            }
+
+            var dashboardRecords = from d in lstDashboard select d;
+
+            switch(sortOrder)
+            {
+                case "Date":
+                    dashboardRecords = dashboardRecords.OrderBy(d => d.DateOfBirth);
+                    break;
+                case "ide_desc":
+                    dashboardRecords = dashboardRecords.OrderByDescending(d => d.FavoriteIDEName);
+                    break;
+                case "software_desc":
+                    dashboardRecords = dashboardRecords.OrderBy(d => d.SoftwareSpecialtyName);
+                    break;
+                case "prog_desc":
+                    dashboardRecords = dashboardRecords.OrderBy(d => d.ProgrammingLanguageName);
+                    break;
+                case "rss_desc":
+                    dashboardRecords = dashboardRecords.OrderBy(d => d.PreferredRSSFeed);
+                    break;
+                default:
+                    dashboardRecords = dashboardRecords.OrderBy(d => d.SoftwareSpecialtyName);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1); // null-coalescing operator defines a default value for a nullable type
+
 
             // Add to our Dashboard view model
-            model.HistoricData = lstData;
+           // model.HistoricData = dashboardRecords.ToPagedList(pageNumber, pageSize);
 
-            return View(model);
+            return View(dashboardRecords.ToPagedList(pageNumber, pageSize));
         }
 
         #endregion
