@@ -8,8 +8,24 @@ namespace DevNet.Models
 {
     public class RSSFeedModel
     {
-        public static List<SyndicationItem> RssFeed { get; set; }
-        public static string RssFeedName { get; set; }
+        public RSSFeedModel()
+        {
+
+        }
+
+        public RSSFeedModel(string Name, List<SyndicationItem> Feed, string func, string confirm)
+        {
+            RssFeedName = Name;
+            RssFeed = Feed;
+            CallFunction = func;
+            IsConfirmed = confirm;
+        }
+
+        public List<SyndicationItem> RssFeed { get; set; }
+        public string RssFeedName { get; set; }
+        public string CallFunction { get; set; }
+        public string IsConfirmed { get; set; }
+
 
         public List<SyndicationItem> GetRSSFeed(string strRecommendedRSSFeed)
         {

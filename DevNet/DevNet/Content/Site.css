@@ -36,3 +36,44 @@ h1, h2, h3, h4, h5, h6
 {
     font-family: 'rosario', Arial, verdana;
 }
+
+.button-color
+{
+    background: #282828;
+    color: #ff005a;
+    border: 2px solid rgba(67, 67, 67, 1);
+    box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(21, 36, 57, 0.6);
+}
+
+.button-color a
+{
+    text-decoration: none;
+}
+
+.button-color:hover
+{
+    background: #4A4A4A;
+    color: #ffb8b8;
+    border: 2px solid rgba(87, 87, 87, 1);
+    box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(21, 36, 57, 0.6);
+}
+
+.button-color:active
+{
+    background: #170707;
+    color: #ffb8b8;
+    border: 2px solid rgba(87, 87, 87, 1);
+    box-shadow: 5px 0px 20px #000000 inset, 0px 0px 20px rgba(21, 36, 57, 0.6);
+}
+
+a {
+  color: #ff005a;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #ffb8b8;
+  text-decoration: none;
+}
+

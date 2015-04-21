@@ -1,0 +1,181 @@
+﻿@model DevNet.Models.ManageUserViewModels
+    
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.FavoriteIDE.FavoriteIDEName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.FavoriteIDE.FavoriteIDEName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.ProgrammingLanguage.ProgrammingLanguageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.ProgrammingLanguage.ProgrammingLanguageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.SoftwareSpecialty.SoftwareSpecialtyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.SoftwareSpecialty.SoftwareSpecialtyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.State.StateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.State.StateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.RssFeedName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.RssFeedName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.EmailConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.EmailConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.PasswordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.PasswordHash)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.SecurityStamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.SecurityStamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.PhoneNumberConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.PhoneNumberConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.TwoFactorEnabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.TwoFactorEnabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.LockoutEndDateUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.LockoutEndDateUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.LockoutEnabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.LockoutEnabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.AccessFailedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.AccessFailedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUser.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUser.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CurrentUser.Id }) |
+    @Html.ActionLink("Back to List", "Manage")
+</p>

@@ -1,11 +1,76 @@
-﻿@model DevNet.Models.IndexViewModel
+﻿@using DevNet.Models;
+@using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "Manage Account";
 }
+
 
 <h2>@ViewBag.Title.</h2>
 
-<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-12">
+        <p class="text-success">@ViewBag.StatusMessage</p>
+
+        <ul class="nav nav-tabs" role="tablist" id="accountTab">
+            <li class="active"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+            <li><a href="#linkedAccounts" role="tab" data-toggle="tab">Linked Accounts</a></li>
+            <li><a href="#passwordReset" role="tab" data-toggle="tab">Password Reset</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade active" id="profile">
+                <p>Here's where we'll put our profile.</p>
+            </div>
+            <div class="tab-pane fade" id="linkedAccounts">
+                <section id="externalLogins">
+                    @*<dl class="dl-horizontal">
+                        
+                        <dt>External Logins:</dt>
+                        <dd>
+                            @Model.Logins.Count [
+                            @Html.ActionLink("Manage", "ManageLogins") ]
+                        </dd>
+                    </dl>*@
+                    @Html.Action("RemoveAccountList")
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
+            <div class="tab-pane fade" id="passwordReset">
+
+                @*<dl class="dl-horizontal">
+                    <dt>Password:</dt>
+                    <dd>
+                        [
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Change your password", "ChangePassword")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Create", "SetPassword")
+                        }
+                        ]
+                    </dd>
+                   
+                </dl>*@
+
+                    @if (ViewBag.HasLocalPassword)
+                    {
+                        @Html.Partial("_ChangePasswordPartial")
+                    }
+                    else
+                    {
+                        @Html.Partial("_SetPasswordPartial")
+                    }
+</div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts { @Scripts.Render("~/bundles/jqueryval") }
+
+@*<p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>Change your account settings</h4>
     <hr />
@@ -27,7 +92,7 @@
         <dd>
             @Model.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
-        </dd>
+        </dd>*@
         @*
             Phone Numbers can used as a second factor of verification in a two-factor authentication system.
              
@@ -53,12 +118,12 @@
                 ]
             </dd>
         *@
-        <dt>Two-Factor Authentication:</dt>
+        @*<dt>Two-Factor Authentication:</dt>
         <dd>
             <p>
                 There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication.
-            </p>
+            </p>*@
             @*@if (Model.TwoFactor)
                 {
                     using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -79,6 +144,6 @@
                         </text>
                     }
                 }*@
-        </dd>
+        @*</dd>
     </dl>
-</div>
+</div>*@

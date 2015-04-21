@@ -4,12 +4,14 @@
     ViewBag.Title = "Manage Programming Languages";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create") |
-    @Html.ActionLink("Manage Site", "Manage", "Home")
-</p>
+<h2>Manage Programming Languages</h2>
+
+<div class="btn-group-lg">
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Create New", "Create")</button>
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Manage Site", "Manage", "Home")</button>
+</div>
+ 
 <table class="table">
     <tr>
         <th>
@@ -24,9 +26,11 @@
             @Html.DisplayFor(modelItem => item.ProgrammingLanguageName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProgrammingLanguageID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProgrammingLanguageID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProgrammingLanguageID })
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Edit", "Edit", new { id = item.ProgrammingLanguageID })</button>
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Details", "Details", new { id = item.ProgrammingLanguageID })</button>
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Delete", "Delete", new { id = item.ProgrammingLanguageID })</button>
+            </div>
         </td>
     </tr>
 }

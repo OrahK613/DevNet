@@ -21,7 +21,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProgrammingLanguageID }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Manage Site", "Manage", "Home")
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Edit", "Edit", new { id = Model.ProgrammingLanguageID })</button>
+        <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Back to List", "Index")</button>
+        <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Manage Site", "Manage", "Home")</button>
+    </div>
 </p>

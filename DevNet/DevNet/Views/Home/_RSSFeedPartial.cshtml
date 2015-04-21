@@ -1,0 +1,22 @@
+﻿@model DevNet.Models.RSSFeedModel
+@using DevNet.Models;
+
+
+@{
+    
+    if (Model.RssFeed != null)
+    {
+        <div class="row float">
+
+            <h2>@Model.RssFeedName RSS Feed</h2>
+            <ul>
+                @foreach (System.ServiceModel.Syndication.SyndicationItem feed in (List<System.ServiceModel.Syndication.SyndicationItem>)Model.RssFeed)
+                {
+                    <li><a href="@feed.Id" target="_blank">@feed.Title.Text </a></li>
+                }
+            </ul>
+
+
+        </div>
+    }
+}

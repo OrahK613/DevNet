@@ -1,0 +1,35 @@
+﻿
+<script type="text/javascript">
+
+    @*var readUrl = '@Url.Action("MarkNotificationAsRead")';
+    var deleteUrl = '@Url.Action("Delete")';*@
+    //var currentNotificationId;
+
+    //function confirmRSS(rss_name) {
+    //    recommendedRSS = rss_name;
+    //    $('#rssConfirmModal').modal('show');
+    //}
+
+    function confirmRSS() {
+
+        $('#rssConfirmModal').modal('show');
+    }
+
+    $(function() {
+        $("#rssConfirmModal").on('click', "#confirmRSS", function () {
+            //return rss_name;
+            alert("You clicked OK");
+            $.ajax({
+                url: 'Home\RSSConfirmation',
+                data: null,
+                success: function () {
+                    $('#rssConfirmModal').modal('hide');
+                }
+            });
+           
+        });
+
+        
+    });
+
+    </script>

@@ -1,0 +1,25 @@
+﻿
+@*@model DevNet.Models.RegisterViewModel*@
+           
+<div class="modal fade" id="rssConfirmModal" tabindex="-1" role="dialog" aria-labelledby="rssLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="rssLabel">Accept RSS Feed</h4>
+            </div>
+            <div class="modal-body">
+                <p>We Recommend the RSS Feed</p>
+                @*<p>We Recommend the @Model.Feeds.RssFeedName RSS Feed</p>*@
+                <p>
+                    If you would like for this RSS Feed to display on your home page every time you login,
+                    please click confirm, or cancel and return
+                    to the page.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmRSS">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

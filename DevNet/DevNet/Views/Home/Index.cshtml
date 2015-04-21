@@ -1,45 +1,14 @@
 ﻿@using DevNet.Models;
+@model DevNet.Models.RSSFeedModel
 
-
-@model IEnumerable<DevNet.Models.ApplicationUser>
-@using Microsoft.AspNet.Identity
 @{
-    ViewBag.Title = "Home Page";
-
-    if (Request.IsAuthenticated)
-    {
-        string strRecommendedRSSFeedName = "";
-
-        if (Model != null)
-        {
-
-            foreach (var item in Model)
-            {
-
-                if (item.UserName == User.Identity.GetUserName())
-                {
-                    strRecommendedRSSFeedName = item.RssFeedName;
-
-                    if(strRecommendedRSSFeedName != null)
-                    {
-                        
-                        RSSFeedModel rssFeed = new RSSFeedModel();
-                        RSSFeedModel.RssFeed = rssFeed.GetRSSFeed(strRecommendedRSSFeedName);
-                        RSSFeedModel.RssFeedName = strRecommendedRSSFeedName;
-                    }
-                    break;
-                   
-                }
-
-            }
-        }
-    }
-    else
-    {
-        RSSFeedModel rssFeed = new RSSFeedModel();
-        RSSFeedModel.RssFeed = null;
-        RSSFeedModel.RssFeedName = "";
-    }
+   string IsConfirmed = "false"; 
+   
+   if(Model.IsConfirmed != null)
+   {
+       IsConfirmed = Model.IsConfirmed;
+   }
+  
 
 }
 
@@ -89,33 +58,84 @@
    
 
 </style>
-@*<div class="logo">*@
-    <div class="jumbotron">
 
-        <div class="darkscreen">
+<div class="jumbotron">
 
-            <p class="lead">DevNet is a portal that serves as an online community for developers and IT employeers to network and talk about technology as well as share knowledge.</p>
+    <div class="darkscreen">
 
-            <ul style="list-style-type: none;"><li style="list-style-type: none;">@Html.ActionLink("Learn more", "About", "Home", new { @class = "btn btn-primary btn-lg nobullets" })&raquo;</li></ul>
+        <p class="lead">DevNet is a portal that serves as an online community for developers and IT employeers to network and talk about technology as well as share knowledge.</p>
+
+        <ul style="list-style-type: none;"><li style="list-style-type: none;">@Html.ActionLink("Learn more", "About", "Home", new { @class = "btn btn-primary btn-lg nobullets" })&raquo;</li></ul>
+
+        <a href="javascript:confirmRSS()">Confirm RSS</a>
+
+    </div>
+    @*@if (IsConfirmed == "true")
+    {
+        Html.RenderPartial("_RSSFeedPartial"); 
+    }*@
+    @{Html.RenderPartial("_RSSFeedPartial"); }
+
+    @*@if (IsConfirmed == "true")
+    {
+        <div class="row float">
+
+            <h2>@Model.RssFeedName RSS Feed</h2>
+            <ul>
+                @foreach (System.ServiceModel.Syndication.SyndicationItem feed in (List<System.ServiceModel.Syndication.SyndicationItem>)Model.RssFeed)
+                {
+                    <li><a href="@feed.Id" target="_blank">@feed.Title.Text </a></li>
+                }
+            </ul>
 
 
         </div>
-        @if (RSSFeedModel.RssFeed != null)
-        {
-            <div class="row float">
-                @*<div class="col-md-4">*@
-                    <h2>@RSSFeedModel.RssFeedName RSS Feed</h2>
-                    <ul>
-                        @foreach (System.ServiceModel.Syndication.SyndicationItem feed in (List<System.ServiceModel.Syndication.SyndicationItem>)RSSFeedModel.RssFeed)
-                        {
-                            <li><a href="@feed.Id" target="_blank">@feed.Title.Text </a></li>
-                        }
-                    </ul>
-                @*</div>*@
+    }*@
+</div>
 
-            </div>
+
+
+
+    
+@*@section topLevel{
+
+    @{ Html.RenderPartial("_RenderRSSConfirmDialog"); }
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @{ Html.RenderPartial("_ConfirmRSSFeed.js"); }
+}
+
+<script>
+
+
+    window.onload = function ()
+    {
+
+        //You can call it like
+        runFunction('@Model.CallFunction', ['runFunction is being called']); //alerts test.
+    };
+
+    function runFunction(name, arguments) {
+
+        var fn = window[name];
+
+        var type = typeof fn;
+
+
+        if (typeof fn !== 'function') {
+            return;
         }
-    </div>
-   
+        else {
+            fn.apply(window);
+        }
 
-@*</div>*@
+
+        // fn.apply(window, arguments);
+
+        }
+
+</script>*@
