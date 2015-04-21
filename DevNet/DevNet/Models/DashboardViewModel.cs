@@ -7,6 +7,7 @@ namespace DevNet.Models
 {
     public class DashboardViewModel
     {
-        public Newtonsoft.Json.Linq.JObject HistoricData { get; set; }
+       // public Newtonsoft.Json.Linq.JObject HistoricData { get; set; }
+        public List<IList<string>> HistoricData { get; set; }
     }
 }

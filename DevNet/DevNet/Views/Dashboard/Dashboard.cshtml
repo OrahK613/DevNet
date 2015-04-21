@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Dashboard";
 
-    //int numRecords = Model.HistoricData["Results"]["Dev Net Historic Data"].Count;
 }
 
 <!-- Custom styles for this template -->
@@ -45,46 +44,38 @@
 
                 if (Model.HistoricData != null)
                 {
-                    <div class="row float">
+                    <h2 class="sub-header">Historic Data</h2>
+                    <div class="table-responsive">
+                        <table class="table dashboard-striped">
+                            <thead>
+                                <tr style="background-color: rgba(89,0,14,.6);">
+                                    <th>Date Of Birth</th>
+                                    <th>Favorite IDE</th>
+                                    <th>Software Specialty</th>
+                                    <th>Programming Language</th>
+                                    <th>Preferred RSS Feed Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (IList<string> record in Model.HistoricData)
+                                {
+                                    <tr style="background-color: rgba(89,0,14,.6); color: #cab1b1;">
+                                        <td>@record[0]</td>
+                                        <td>@record[1]</td>
+                                        <td>@record[2]</td>
+                                        <td>@record[3]</td>
+                                        <td>@record[4]</td>
+                                    </tr>
+                                }
 
-                        <h2>Historic Data</h2>
 
-                        <ul>
-                            @for (int index = 0; index < numRecords; index++ )
-                            {
-                                <li>@Model.HistoricData["Results"]["Dev Net Historic Data"]["value"]["Values"][index][1].ToString()</li>
-                            }
-                        </ul>
-
-
+                            </tbody>
+                        </table>
                     </div>
                 }
             }
 
-            @*<h2 class="sub-header">Section title</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>Lorem</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
-                        </tr>
-                       
-                    </tbody>
-                </table>*@
-            @*</div>*@
+            
         </div>
     </div>
 </div>

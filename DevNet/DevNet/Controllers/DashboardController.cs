@@ -32,11 +32,19 @@ namespace DevNet.Controllers
 
             // Get the actual historic records
             joHistoricData = DevNetHistoricDataViewModel.HistoricData;
-            JArray jaDateOfBirth = (JArray)joHistoricData["Results"]["Dev Net Historic Data"]["value"]["Values"][0];
-            IList<string> lstValues = jaDateOfBirth.Select(v => (string)v).ToList();
+           
+            List<IList<string>> lstData = new List<IList<string>>();
+
+            foreach (JArray record in joHistoricData["Results"]["Dev Net Historic Data"]["value"]["Values"])
+            {
+                IList<string> lstRecord = record.Select(v => (string)v).ToList();
+                lstData.Add(lstRecord);
+       
+            }
+         
 
             // Add to our Dashboard view model
-            model.HistoricData = joHistoricData;
+            model.HistoricData = lstData;
 
             return View(model);
         }
