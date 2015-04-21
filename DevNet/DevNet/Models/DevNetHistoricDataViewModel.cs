@@ -5,8 +5,8 @@ using System.Web;
 
 namespace DevNet.Models
 {
-    public class DevNetAnalyticsViewModel
+    public class DevNetHistoricDataViewModel
     {
-        public static Newtonsoft.Json.Linq.JObject RSSFeed { get; set; }
+        public static Newtonsoft.Json.Linq.JObject HistoricData { get; set; }
     }
 }

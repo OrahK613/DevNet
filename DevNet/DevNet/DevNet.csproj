@@ -252,8 +252,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DevNetAnalytics.cs" />
     <Compile Include="Models\DevNetAnalyticsViewModel.cs" />
+    <Compile Include="Models\DevNetHistoricData.cs" />
+    <Compile Include="Models\DevNetHistoricDataViewModel.cs" />
     <Compile Include="Models\FavoriteIDE.cs" />
     <Compile Include="Models\HtmlHelpers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
