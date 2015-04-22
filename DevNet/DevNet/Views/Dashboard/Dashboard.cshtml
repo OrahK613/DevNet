@@ -2,6 +2,7 @@
 @using PagedList.Mvc;
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/skill.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Dashboard";
 
@@ -17,29 +18,17 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        @*<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">*@
             <h1 class="page-header">Dashboard</h1>
 
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Figure 1</h4>
-                    <span class="text-muted">Software Specialization Distribution</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Figure 2</h4>
-                    <span class="text-muted">Correlation Between IDE use and Programming Language</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Figure 3</h4>
-                    <span class="text-muted">Language Popularity by Age Group</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Figure 4</h4>
-                    <span class="text-muted">Software Specialization by Location</span>
+            <div id="skills">
+                <div id="skillmap">
+                    <div class="skills-wrapper">
+                        <div class="skills-sunburst"></div>
+                        <div class="skills-chart">
+                            <div id="skills-chart-breadcrumb"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -64,7 +53,7 @@
                 
                                 @foreach (DevNet.Models.Dashboard record in Model)
                                 {
-                                    <tr style="background-color: rgba(89,0,14,.6); color: #cab1b1;">
+                                    <tr style="color: #cab1b1; background-color:rgba(89,0,14,.6) ">
                                         <td>@record.DateOfBirth.ToShortDateString()</td>
                                         <td>@record.FavoriteIDEName</td>
                                         <td>@record.SoftwareSpecialtyName</td>
@@ -87,7 +76,7 @@
             
         </div>
     </div>
-</div>
+@*</div>*@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -98,4 +87,17 @@
 <script src="js/vendor/holder.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- d3js a JavaScript library that binds data to DOM -->
+@*<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>*@
+<script src="~/Scripts/d3.min.js"></script>
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/skillsdata.js"></script>
+<script type="text/javascript" src="~/Scripts/skill.js"></script>
+<script type="text/javascript">
+    // Hack to make this example display correctly in an iframe on bl.ocks.org
+    d3.select(self.frameElement).style("height", "700px");
+</script>
+
+ 
 
