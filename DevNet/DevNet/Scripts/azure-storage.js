@@ -47,11 +47,16 @@
         setFileInfoData(selectedFile);
 
         var fileSize = selectedFile.size;
+
         if (fileSize < maxFileSize) {
+
             if (fileSize < maxBlockSize) {
                 maxBlockSize = fileSize;
             }
             totalBytesRemaining = fileSize;
+
+            alert(selectedFile.name);
+
             setWAMSUri(selectedFile.name);
         }
         else {
@@ -112,8 +117,13 @@
 
     // Calls WAMS service CreateWAMSAsset which creates a new WAMS asset and returns the submitUri needed for upload start
     function setWAMSUri(fileName) {
+
+        alert("Inside setWAMSUri");
+
         $.ajax({
             type: "POST",
+           // url: '@Url.Action("Create Asset", "CreateAsset", "WAMS")',
+            // url: "/api/WAMS/CreateAsset",
             url: "/api/WAMS/CreateAsset",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ fileName: fileName }),
