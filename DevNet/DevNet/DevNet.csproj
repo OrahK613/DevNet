@@ -492,8 +492,6 @@
     <Content Include="Scripts\three.min.js" />
     <Content Include="Scripts\tween.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Videos\Haskell.mp4" />
-    <Content Include="Videos\Java Programming - Step by Step tutorial.mp4" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
