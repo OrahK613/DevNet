@@ -25,9 +25,12 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index") |
-            @Html.ActionLink("Manage Site", "Manage", "Home")
+            <div class="btn-group-lg">
+                <input type="submit" value="Delete" class="btn btn-default button-color" />
+                <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Back to List", "Index")</button>
+                <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Manage Site", "Manage", "Home")</button>
+            </div>
         </div>
+
     }
 </div>

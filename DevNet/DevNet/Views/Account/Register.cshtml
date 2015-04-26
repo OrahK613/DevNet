@@ -1,7 +1,7 @@
 ﻿@model DevNet.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
-    string ShowDialog = ViewData["ShowDialog"].ToString();
+    bool ShowDialog = Model.ShowDialog;
 }
 
 <h2>@ViewBag.Title.</h2>

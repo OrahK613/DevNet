@@ -249,6 +249,8 @@ namespace DevNet.Models
         public IEnumerable<System.Web.Mvc.SelectListItem> ProgrammingLanguageList { get; set; }
 
         public RSSFeedModel Feeds { get; set; }
+
+        public bool ShowDialog { get; set; } 
     }
 
     public class ResetPasswordViewModel

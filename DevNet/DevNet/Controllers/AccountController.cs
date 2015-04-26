@@ -168,7 +168,7 @@ namespace DevNet.Controllers
 
                 // We haven't registered yet so we will not want to bring up the confirm RSS Feed Dialog when we post back to the Register form
                 // Stores a variable indicating that we don't want to bring up the dialog
-                ViewData["ShowDialog"] = "false";
+                model.ShowDialog = false;
 
                 model.SelectedStateID = -1;
                 model.SelectedIDEID = -1;
@@ -236,6 +236,7 @@ namespace DevNet.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    model.ShowDialog = true;
                     return RedirectToAction("Register", "Account");
                    // return RedirectToAction("Index", "Home");
                 }
@@ -317,7 +318,7 @@ namespace DevNet.Controllers
 
                         // Since the registration failed we will not want to bring up the confirm RSS Feed Dialog when we post back to the Register form
                         // Stores a variable indicating that we don't want to bring up the dialog
-                        ViewData["ShowDialog"] = "false";
+                        model.ShowDialog = false;
 
                         model.StateList = lstSelectedStates;
                         model.FavoriteIDEList = lstSelectedFavoriteIDEs;
@@ -407,6 +408,8 @@ namespace DevNet.Controllers
                     model.FavoriteIDEList = lstSelectedFavorieIDEs;
                     model.SoftwareSpecialtyList = lstSelectedSoftwareSpecialties;
                     model.ProgrammingLanguageList = lstSelectedProgrammingLanguages;
+
+                    model.ShowDialog = false;
 
                 }
             }

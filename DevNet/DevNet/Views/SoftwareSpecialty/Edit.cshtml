@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>SoftwareSpecialty</h4>
+        <h4>Software Specialty</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.SoftwareSpecialtyID)
@@ -32,7 +32,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Manage Site", "Manage", "Home")
+<div class="btn-group-lg">
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Back to List", "Index")</button>
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Manage Site", "Manage", "Home")</button>
 </div>

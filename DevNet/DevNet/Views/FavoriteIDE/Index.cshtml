@@ -4,12 +4,13 @@
     ViewBag.Title = "Manage Favorite IDEs";
 }
 
-<h2>Index</h2>
+<h2>Manage Favorite IDEs</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    @Html.ActionLink("Manage Site", "Manage", "Home")
-</p>
+<div class="btn-group-lg">
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Create New", "Create")</button>
+    <button type="button" class="btn btn-primary btn-lg button-color">@Html.ActionLink("Manage Site", "Manage", "Home")</button>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -23,10 +24,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.FavoriteIDEName)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FavoriteIDEID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FavoriteIDEID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FavoriteIDEID })
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Edit", "Edit", new { id = item.FavoriteIDEID })</button>
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Details", "Details", new { id = item.FavoriteIDEID })</button>
+                <button type="button" class="btn btn-primary btn-sm button-color">@Html.ActionLink("Delete", "Delete", new { id = item.FavoriteIDEID })</button>
+            </div>
         </td>
     </tr>
 }
