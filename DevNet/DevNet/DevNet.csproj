@@ -178,6 +178,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Spatial.5.6.3\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -191,6 +194,9 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -293,6 +299,7 @@
     <Compile Include="Controllers\DevTVController.cs" />
     <Compile Include="Controllers\FavoriteIDEController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HttpPost.cs" />
     <Compile Include="Controllers\ProgrammingLanguageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SoftwareSpecialtyController.cs" />
@@ -334,6 +341,7 @@
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\SyndicationFeed.cs" />
     <Compile Include="Models\SyndicationItem.cs" />
+    <Compile Include="Models\WAMS.cs" />
     <Compile Include="Models\WAMSAssetModel.cs" />
     <Compile Include="Models\WAMSJobLocatorsModel.cs" />
     <Compile Include="Models\WAMSLocatorModel.cs" />
@@ -567,7 +575,7 @@
     <Content Include="Views\Account\_RenderRSSConfirmDialog.cshtml" />
     <Content Include="Views\Account\_ConfirmRSSFeed.js.cshtml" />
     <Content Include="Views\Home\_RSSFeedPartial.cshtml" />
-    <Content Include="Views\DevTV\Upload.cshtml" />
+    <Content Include="Views\DevTV\FileUpload.cshtml" />
     <Content Include="Views\DevTV\ConfigError.cshtml" />
   </ItemGroup>
   <ItemGroup>

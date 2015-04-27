@@ -23,7 +23,7 @@ namespace DevNet.Models
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
 
-        static public void InitMediaService()
+        static public void InitMediaService(string uri)
         {
             try
             {
@@ -35,8 +35,8 @@ namespace DevNet.Models
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
-                IAsset inputAsset = UploadFile(@"C:\VideoFiles\small.mp4", AssetCreationOptions.None);
+                IAsset inputAsset = UploadFile(uri, AssetCreationOptions.None);
+                //IAsset inputAsset = UploadFile(@"C:\VideoFiles\small.mp4", AssetCreationOptions.None);
 
                 IAsset encodedAsset = EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 

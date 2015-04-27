@@ -120,7 +120,7 @@
 
         alert("Inside setWAMSUri");
 
-        $.ajax({
+        $.post({
             type: "POST",
            // url: '@Url.Action("Create Asset", "CreateAsset", "WAMS")',
             // url: "/api/WAMS/CreateAsset",

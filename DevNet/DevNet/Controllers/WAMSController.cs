@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Http.WebHost;
 using DevNet.Infrastructure;
 using DevNet.Models;
+using System.Web.Http.Cors;
 
 
 namespace DevNet.Controllers
@@ -16,6 +17,7 @@ namespace DevNet.Controllers
     /// IMPORTANT: To secure the website, authorization can be implemented to actions in this controller
     /// Since this is a proof-of-concept app, I just didn't bother implementing it
     /// </summary>
+    [EnableCors(origins: "https://localhost:44300/", headers: "x-ms-meta-abc, x-ms-meta-data*, x-ms-meta-target*", methods: "Put")]
     public class WAMSController : ApiController
     {
         private WAMSProvider _wamsProvider = null;
